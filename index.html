@@ -1,281 +1,141 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Резюме тестировщика ПО – [Ф.И.О.]</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <style>
-    /* Переменные для монохромной гаммы */
-    :root {
-      --primary-color: #333;
-      --secondary-color: #555;
-      --accent-color: #777;
-      --border-color: #e0e0e0;
-      --background-color: #fff;
-      --light-background: #f4f4f4;
-    }
-
-    /* Основной стиль страницы */
-    body {
-      margin: 0;
-      padding: 20px;
-      background-color: var(--light-background);
-      font-family: Arial, Helvetica, Calibri, sans-serif;
-      color: var(--primary-color);
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background-color: var(--background-color);
-      border: 1px solid var(--border-color);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      border-radius: 8px;
-      padding: 30px;
-    }
-
-    /* Хедер: Аватар, информация и контакты */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 20px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-    }
-    .avatar {
-      width: 150px;
-      height: 150px;
-      margin-right: 20px;
-    }
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border: 1px solid var(--border-color);
-    }
-    .header-info h1 {
-      font-size: 36px;
-      margin: 0;
-      font-weight: normal;
-    }
-    .header-info p {
-      font-size: 16px;
-      color: var(--secondary-color);
-      margin: 5px 0 0 0;
-    }
-    .contact {
-      font-size: 14px;
-      line-height: 1.4;
-      text-align: right;
-    }
-    .contact p {
-      margin: 3px 0;
-    }
-    
-    /* Секции резюме */
-    section {
-      margin-bottom: 30px;
-    }
-    h2 {
-      font-size: 22px;
-      color: var(--primary-color);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    h3 {
-      font-size: 18px;
-      margin-bottom: 5px;
-      color: var(--secondary-color);
-    }
-    p {
-      margin: 10px 0;
-    }
-    
-    /* Стилизация списков */
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-    ul li {
-      margin-bottom: 8px;
-      padding-left: 15px;
-      position: relative;
-    }
-    ul li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--accent-color);
-    }
-    
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    .small {
-      font-size: 14px;
-      color: var(--accent-color);
-    }
-
-    /* Блок с иконками программ (в секции навыков) */
-    .software-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin: 15px 0;
-    }
-    .software-icons img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-      background-color: var(--background-color);
-      padding: 5px;
-    }
-    
-    /* Responsive дизайн */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .header-left {
-        margin-bottom: 10px;
-      }
-      .contact {
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игорь — QA Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="favicon.png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="site.webmanifest" />
 </head>
 <body>
-  <div class="container">
-    <!-- Хедер с аватаром, информацией и контактами -->
-    <header>
-      <div class="header-left">
-        <div class="avatar">
-          <!-- Замените "avatar.jpg" на путь к вашему изображению -->
-          <img src="avatar.png" alt="Ваш аватар">
+    <!-- Шапка с улучшенной навигацией -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Резюме</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Навыки</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="header-info">
-          <h1>Ниточкин Игорь Сергеевич</h1>
-          <p>Junior QA/Младший ручной тестировщик</p>
-        </div>
-      </div>
-      <div class="contact">
-        <p><strong>Телефон:</strong> +7 (965) 459-1381</p>
-        <p><strong>Email:</strong> <a href="mailto:initochkin@yandex.com">initochkin@yandex.ru</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/yourprofile" target="_blank">github.com/IgornitQA</a></p>
-        <p><strong>Адрес:</strong> Краснодар, Россия</p>
-      </div>
     </header>
-    
-    <!-- Цель -->
-    <section>
-      <h2>Цель</h2>
-      <p>Стремлюсь развивать карьеру тестировщика ПО, внося вклад в повышение качества продуктов, работая в динамичной команде, где ценятся инновации, автоматизация тестирования и гибкие методологии.</p>
+
+   <!-- Главный экран с параллакс-эффектом -->
+<section id="home" class="hero">
+    <div class="hero__content">
+      <div class="hero__avatar-container">
+        <img src="avatar.png" alt="Игорь" class="hero__avatar">
+        </div>
+        <h1 class="hero__title">Привет, я — Игорь</h1>
+        <p class="hero__subtitle">QA Engineer & Тестировщик ПО</p>
+        <a href="resume.pdf" class="btn hero__btn" download>Скачать резюме</a>
+    </div>
+</section>
+
+    <!-- Блок с персональными данными и анимацией -->
+    <div class="frame-container">
+    <section class="info-panel">
+        <div class="container">
+            <div class="info-panel__inner">
+                <div class="info-panel__left">
+                    <h3 class="info-panel__title">Персональные данные</h3>
+                    <ul class="info-panel__list">
+                        <li>Email: <a href="mailto:6660467@gmail.com">initochkin@yandex.ru</a></li>
+                        <li>Языки: Русский, Английский</li>
+                        <li>Национальность: Россия</li>
+                    </ul>
+                </div>
+                <div class="info-panel__right">
+                    <h2 class="info-panel__headline">
+                        Я — <span class="animated-text"></span>
+                    </h2>
+                    <p class="info-panel__description">
+                        Тестировщик с небольшим опытом функционального и нефункционального тестирования веб-приложений, десктопных программ и API
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <!-- Профессиональный профиль -->
-    <section>
-      <h2>Профессиональный профиль</h2>
-      <p>Начинающий специалист в области тестирования ПО. Владею современными инструментами тестирования (, Postman, ЯндексТрекер, TestIT, DevTools, Charles, Kibana, Grafana, Miro, BuildinIO, SOAP, REST) Обладаю аналитическими способностями и инициативой для непрерывного профессионального роста.</p>
-      <!-- Иконки программ -->
-      <div class="software-icons">
-        <!-- Замените "icon1.png" и alt-текст на реальные иконки программ -->
-        <img src="postman.png" alt="Программа 1">
-        <img src="charles.png" alt="Программа 2">
-        <img src="chrome_ic.png" alt="Программа 3">
-        <img src="miro.png" alt="Программа 4">
-        <img src="soap.png" alt="Программа 5">
-        <img src="Logo_Yandex_Tracker.svg.png" alt="Программа 6">
-        <img src="mongodb.png" alt="Программа 7">
-        <img src="sublimes.png" alt="Программа 8">
-        <!-- Можно добавить до 10 иконок -->
+
+    <section id="skills">
+  <div class="skills-container">
+    <!-- Заголовок секции -->
+    <h2>Навыки и стек</h2>
+
+    <!-- Сетка карточек навыков -->
+    <div class="skills-grid">
+      <div class="skill-card">
+        <img src="iconsdevtools.png" alt="DevTools">
+        <h3>DevTools</h3>
+        <p>Тестирования front-части web-приложений</p>
       </div>
-    </section>
-    
-    <!-- Опыт работы -->
-    <section>
-      <h2>Опыт работы</h2>
-      <div class="job">
-        <h3>Компания А, Город</h3>
-        <p class="small"><em>Тестировщик ПО / QA Engineer</em> &mdash; ММ.ГГГГ &mdash; ММ.ГГГГ</p>
-        <ul>
-          <li>Разработка и выполнение тест-кейсов для ручного тестирования.</li>
-          <li>Работа с DevTools.</li>
-        </ul>
+      <div class="skill-card">
+        <img src="iconspostman.png" alt="Postman">
+        <h3>Postman</h3>
+        <p>Тестирование API и веб-сервисов.</p>
       </div>
-      
-      <div class="job">
-        <h3>Компания Б, Город</h3>
-        <p class="small"><em>Младший тестировщик ПО</em> &mdash; ММ.ГГГГ &mdash; ММ.ГГГГ</p>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+      <div class="skill-card">
+        <img src="iconsgit.png" alt="Git">
+        <h3>Git</h3>
+        <p>Система контроля версий для управления кодом.</p>
       </div>
-    </section>
-  
-    <!-- Образование -->
-    <section>
-      <h2>Образование</h2>
-      <p><strong>Название ВУЗа</strong>, Город</p>
-      <p>Факультет: [Название факультета] — Специальность: [Название специальности]</p>
-      <p>Год выпуска: XXXX</p>
-    </section>
-    
-    <!-- Дополнительное образование и сертификаты -->
-    <section>
-      <h2>Дополнительное образование и сертификаты</h2>
-      <ul>
-        <li>[Название курса или сертификата] &mdash; [Организация], Год</li>
-        <li>[Название курса или сертификата] &mdash; [Организация], Год</li>
-      </ul>
-    </section>
-    
-    <!-- Профессиональные навыки -->
-    <section>
-      <h2>Профессиональные навыки</h2>
-      <ul>
-        <li><strong>Методологии:</strong> Agile, Scrum, Waterfall</li>
-        <li><strong>Тестирование:</strong> Ручное тестирование</li>
-        <li><strong>Инструменты:</strong> Postman, TestIT, SOAP</li>
-        <li><strong>Базы данных:</strong> SQL (запросы, оптимизация)</li>
-      </ul>
-    </section>
-    
-    <!-- Личные качества -->
-    <section>
-      <h2>Личные качества</h2>
-      <ul>
-        <li>Аналитический склад ума и внимание к деталям</li>
-        <li>Коммуникативность и умение работать в команде</li>
-        <li>Стремление к постоянному развитию и обучению</li>
-        <li>Ответственность и инициативность</li>
-      </ul>
-    </section>
-    
+      <div class="skill-card">
+        <img src="miro.png" alt="Miro">
+        <h3>Miro</h3>
+        <p>Визуализации сложной архитектуры и ландшафтов.</p>
+      </div>
+      <div class="skill-card">
+        <img src="charles.png" alt="Charles">
+        <h3>Charles</h3>
+        <p>Возможность просмотра трафика.</p>
+      </div>
+      <div class="skill-card">
+        <img src="iconsposgre.png" alt="SQL">
+        <h3>PostgreSQL</h3>
+        <p>Работа с базами данных и запросами.</p>
+      </div>
+      <div class="skill-card">
+        <img src="iconsswagger.png" alt="Swager">
+        <h3>Swager</h3>
+        <p>Для тестирования API и документации по API.</p>
+      </div>
+      <div class="skill-card">
+        <img src="Tracker.png" alt="YaTracker">
+        <h3>YaTracker</h3>
+        <p>Организация ежедневной работы и написание багрепортов.</p>
+      </div>
+      <div class="skill-card">
+        <img src="testit.png" alt="TestIT">
+        <h3>TestIT</h3>
+        <p>Написание тест-кейсов.</p>
+      </div>
+    </div>
+
+    <!-- Блок с контактной информацией -->
+    <div class="contact-info">
+      <h2>Контактная информация</h2>
+      <p><strong>Email:</strong> initochkin@yandex.ru</p>
+      <p><strong>Телефон:</strong> +7 (965) 459-13-81</p>
+      <p><strong>Адрес:</strong> Краснодар, Россия</p>
+    </div>
   </div>
+</section>
+
+    <!-- Улучшенный подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__text">&copy; 2025 Игорь. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Скрипты вынесены в отдельный файл -->
+    <script src="script.js"></script>
 </body>
 </html>

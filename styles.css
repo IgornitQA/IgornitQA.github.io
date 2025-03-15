@@ -1,93 +1,333 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    /* Обнуление отступов и базовые характеристики */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 0;
+}
+
+.nav__link {
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+    color: #ffd700;
+}
+
+/* Hero section */
+.hero {
+    background: url('fon.png') no-repeat center center/cover;
+    height: 65vh;
+    display: flex;
+    justify-content: center; /* Горизонтальное выравнивание */
+    align-items: center; /* Вертикальное выравнивание */
+    position: relative;
+    text-align: center; /* Выравнивание текста */
+}
+
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    z-index: -1; /* Убедитесь, что градиент находится под всем содержимым */
+}
+
+.hero__content {
+    max-width: 800px;
+    width: 100%;
+    padding: 0 20px;
+    position: relative; /* Добавлено для правильного позиционирования аватара */
+    z-index: 1; /* Убедитесь, что содержимое находится над градиентом */
+}
+
+.hero__avatar-container {
+    position: relative;
+    margin: 0 auto 25px;
+    z-index: 2; /* Убедитесь, что аватар находится над градиентом */
+}
+
+.hero__avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #ffd700;
+    margin: 0 auto 25px; /* Центрирование аватара */
+    object-fit: cover;
+    display: block;
+}
+
+.hero__title {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    color: #ffd700;
+    margin-bottom: 2rem;
+}
+
+/* Стили для кнопки */
+.btn {
+    background: #ffd700;
+    color: #333;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease; /* Плавный переход */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Для корректной анимации */
+    font-weight: 700; /* Жирный текст */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* Тень */
+}
+
+/* Анимация при наведении */
+.btn:hover {
+    transform: scale(1.05) rotate(-2deg); /* Масштабирование и поворот */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Усиленная тень */
+    background: #e6b800; /* Темнее золотой */
+    text-decoration: none; /* Подчеркивание остается убранным */
+}
+
+/* Дополнительные улучшения */
+.btn:active {
+    transform: scale(0.95); /* Эффект нажатия */
+}
+
+/* Анимация при загрузке */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.btn:focus {
+    outline: none; /* Убираем outline */
+    animation: pulse 0.5s ease; /* Пульсация при фокусе */
+}
+
+/* Info panel */
+.frame-container {
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* Базовое позиционирование */
+  z-index: 10; /* Уровень слоя */
+  margin: 40px auto; /* Увеличенные отступы */
+  transform-style: preserve-3d; /* Для 3D-эффектов */
+}
+}
+
+.frame-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.info-panel {
+  padding: 30px;
+  margin-top: -110px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background: #fff;
+}
+
+.info-panel__inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.info-panel__list {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.info-panel__headline {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+}
+
+.animated-text {
+  color: #42b983;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skills {
+  padding: 30px;
+  border-top: 1px solid #eee;
+}
+
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.frame-container {
+  animation: fadeIn 1s ease-out;
+}
+
+
+/* Общая обёртка секции */
+#skills {
+  padding: 60px 20px;
+  background-color: #f8f8f8;
+}
+
+/* Контейнер для центрирования содержимого */
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Заголовок секции */
+.skills-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+/* Сетка карточек навыков */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Карточка навыка */
+.skill-card {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Стили для изображений и заголовков внутри карточек */
+.skill-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+.skill-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+.skill-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Контейнер контактной информации */
+.contact-info {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  text-align: left;
+  display: inline-block;
+  min-width: 300px;
+}
+.contact-info h2 {
+  margin-bottom: 20px;
+}
+.contact-info p {
+  font-size: 1rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .skill-card {
+    width: 90%;
+  }
+  
+  .contact-info {
+    width: 90%;
+    margin-top: 40px;
+  }
+}
+
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.footer__text {
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-panel__inner {
+        grid-template-columns: 1fr;
     }
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #fff;
-      color: #333;
-      line-height: 1.6;
-      padding: 20px;
+    
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
     }
-    .resume {
-      max-width: 800px;
-      margin: 0 auto;
+    
+    .hero__title {
+        font-size: 2rem;
     }
-    /* Шапка резюме */
-    header {
-      text-align: center;
-      padding-bottom: 10px;
-    }
-    header h1 {
-      font-size: 2em;
-      margin-bottom: 5px;
-    }
-    header h2 {
-      font-size: 1.2em;
-      font-weight: normal;
-      color: #555;
-      margin-bottom: 5px;
-    }
-    header p {
-      font-size: 0.9em;
-      color: #777;
-    }
-    /* Горизонтальный разделитель */
-    hr {
-      border: none;
-      border-bottom: 1px dashed #ccc;
-      margin: 20px 0;
-    }
-    /* Секция резюме */
-    .section {
-      margin-bottom: 20px;
-    }
-    .section h3 {
-      font-size: 1.1em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
-    }
-    .section p,
-    .section ul {
-      font-size: 0.95em;
-    }
-    .section ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
-    .item {
-      margin-bottom: 15px;
-    }
-    .item h4 {
-      font-size: 1em;
-      font-weight: bold;
-    }
-    .date {
-      font-size: 0.9em;
-      color: #777;
-      margin-bottom: 5px;
-    }
-    /* Блок с иконками программ */
-    .programs .icons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .programs .icons img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-    }
-    /* Адаптивность для мобильных устройств */
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-    }
+}
