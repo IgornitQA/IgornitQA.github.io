@@ -1,41 +1,38 @@
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    // Плавная прокрутка
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Анимация текста
-    const texts = ['QA Engineer', 'Тестировщик ПО'];
-    let currentText = 0;
-    let currentChar = 0;
-    const animatedText = document.querySelector('.animated-text');
-
-    function typeWriter() {
-        if (currentChar < texts[currentText].length) {
-            animatedText.textContent += texts[currentText].charAt(currentChar);
-            currentChar++;
-            setTimeout(typeWriter, 100);
-        } else {
-            setTimeout(eraseText, 2000);
-        }
-    }
-
-    function eraseText() {
-        if (currentChar > 0) {
-            animatedText.textContent = texts[currentText].substring(0, currentChar-1);
-            currentChar--;
-            setTimeout(eraseText, 50);
-        } else {
-            currentText = (currentText + 1) % texts.length;
-            setTimeout(typeWriter, 500);
-        }
-    }
-
-    typeWriter();
+"use strict";
+document.documentElement.classList.add("js");
+document.querySelectorAll("[data-year]").forEach((element) => {
+  element.textContent = String(new Date().getFullYear());
 });
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.getElementById("main-nav");
+function closeMenu() {
+  if (!toggle || !nav) return;
+  toggle.setAttribute("aria-expanded", "false");
+  nav.classList.remove("is-open");
+}
+if (toggle && nav) {
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", String(open));
+    nav.classList.toggle("is-open", open);
+  });
+  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+}
+const copyButton = document.querySelector("[data-copy-email]");
+const copyStatus = document.querySelector(".copy-status");
+if (copyButton && copyStatus) {
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(copyButton.dataset.copyEmail);
+      copyStatus.textContent = "Email скопирован";
+    } catch {
+      copyStatus.textContent = "Не удалось скопировать. Выделите email или нажмите на него.";
+    }
+  });
+}
