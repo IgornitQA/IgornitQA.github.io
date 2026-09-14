@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Кейс Игоря Ниточкина: Happy Path Bot для подготовки тест-кейсов из задач Яндекс Трекера. Предварительный просмотр, проверка дублей и связь с Test IT.">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta property="og:title" content="Happy Path Bot: от задачи к тест-кейсу · Игорь Ниточкин">
+  <meta property="og:description" content="Инициатива в QA-процессе: подготовка черновиков, проверка структуры и связь тест-кейса с задачей.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://igornitqa.github.io/cases/happy-path-bot.html">
+  <link rel="icon" href="../mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css"><script src="../script.js" defer></script>
+  <title>Happy Path Bot: от задачи к тест-кейсу · Игорь Ниточкин</title>
+</head>
+<body class="case-page">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html" aria-label="Игорь Ниточкин, на главную"><span class="brand-mark">ин.</span><span>QA ENGINEER</span></a><a class="case-back" href="../index.html#contact">Связаться ↗</a></div></header>
+  <main id="main" class="wrap">
+    <section class="case-hero" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../index.html#case">← К портфолио</a>
+      <p class="eyebrow">КЕЙС / ИНИЦИАТИВА В QA-ПРОЦЕССЕ</p>
+      <h1 id="case-title">Happy Path Bot:<br>от задачи к тест-кейсу<span class="name-dot">.</span></h1>
+      <p class="case-lead">Разработал инструмент подготовки черновиков happy-path тест-кейсов из задач Яндекс Трекера. Связал его с Test IT, предусмотрел предварительный просмотр и проверку дублей.</p>
+      <div class="case-meta"><div><span>ПРОЕКТ</span>QUGO · финтех</div><div><span>ПЕРИОД</span>Май — июль 2026</div><div><span>ИНСТРУМЕНТЫ</span>Python · Яндекс Трекер · Test IT</div></div>
+    </section>
+    <div class="article-layout">
+      <nav class="article-toc" aria-label="Содержание кейса"><a href="#context">01 · Задача</a><a href="#contribution">02 · Мой вклад</a><a href="#workflow">03 · Как работает</a><a href="#result">04 · Результат</a></nav>
+      <article class="case-article">
+        <section id="context"><h2>Задача</h2><p>При подготовке тестовой документации QA переносит контекст из продуктовой задачи, описывает шаги и ожидаемые результаты, создаёт кейс в TMS и связывает его с задачей. Я решил объединить эти действия в инструменте для подготовки основного положительного сценария — happy path.</p><p>Цель — получить структурированный черновик для проверки и доработки QA. Полноту покрытия, корректность ожиданий и дополнительные сценарии по-прежнему определяет человек.</p></section>
+        <section id="contribution"><h2>Что сделал</h2><ul><li><strong>Разработал Happy Path Bot на Python.</strong> Инструмент получает описание продуктовой задачи и находит связанную happy-path задачу в Яндекс Трекере.</li><li><strong>Добавил подготовку черновика и проверку структуры.</strong> Предусмотрел режим предварительного просмотра без записи во внешние системы.</li><li><strong>Интегрировал Test IT.</strong> При записи инструмент проверяет наличие дубля, создаёт тест-кейс и связывает его с задачей.</li><li><strong>Учитывал разные связи задач.</strong> Доработал поиск: happy-path задача может быть подзадачей или отдельной связанной задачей.</li></ul></section>
+        <section id="workflow"><h2>Как устроен рабочий сценарий</h2><div class="test-flow" aria-label="Задача, черновик и запись тест-кейса"><div><small>01 / КОНТЕКСТ</small><strong>Задача в трекере</strong><p>Описание требования и поиск связанной задачи для тестирования.</p></div><div><small>02 / ПОДГОТОВКА</small><strong>Черновик и просмотр</strong><p>Структурированный сценарий, который QA может оценить перед записью.</p></div><div><small>03 / ЗАПИСЬ</small><strong>Test IT и связь</strong><p>Проверка существующего кейса, создание и ссылка в задаче.</p></div></div><p>Предварительный просмотр и запись разделены. Исходная продуктовая задача не используется как место для записи результатов: инструмент работает со связанной QA-задачей.</p><p>После подготовки QA проверяет бизнес-смысл, шаги и ожидаемые результаты, исправляет черновик и дополняет покрытие. Корректная структура сама по себе не гарантирует качественный тест-кейс.</p></section>
+        <section id="result"><h2>Что получилось</h2><p><strong>Появился повторяемый способ подготовки тест-кейса из задачи трекера</strong> с проверкой структуры, контролем дублей и связью между Яндекс Трекером и Test IT.</p><p>Мой вклад — самостоятельная разработка инструмента и его доработка под рабочий процесс команды. Это продолжение инициативы с тестовой документацией: от создания базы кейсов до автоматизации её подготовки.</p><div class="case-note"><p><strong>Область применения.</strong> Инструмент готовит основной положительный сценарий. Ревью требований, негативные и пограничные проверки остаются отдельной работой QA. Количественную экономию времени в этом кейсе не заявляю.</p></div></section>
+        <div class="case-end"><p>Кейс описывает личный вклад. Примеры обобщены без публикации закрытого кода, внутренних адресов и данных пользователей.</p><a class="button" href="../index.html#contact">Обсудить опыт <span aria-hidden="true">↗</span></a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p>© <span data-year>2026</span> Игорь Ниточкин</p><a href="../index.html">На главную ↗</a></footer>
+</body>
+</html>
