@@ -21,7 +21,7 @@
   <header class="site-header"><div class="wrap header-inner">
     <a class="brand" href="#main" aria-label="Игорь Ниточкин, на главную"><span class="brand-mark">ин.</span><span>QA ENGINEER</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Меню <span aria-hidden="true">+</span></button>
-    <nav id="main-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#case">Кейс</a><a href="#approach">Подход</a><a href="#contact">Контакты</a><a class="nav-download" href="resume.pdf" download="Igor-Nitochkin-QA.pdf">Резюме PDF <span aria-hidden="true">↗</span></a></nav>
+    <nav id="main-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#case">Кейсы</a><a href="#approach">Подход</a><a href="#contact">Контакты</a><a class="nav-download" href="resume.pdf" download="Igor-Nitochkin-QA.pdf">Резюме PDF <span aria-hidden="true">↗</span></a></nav>
   </div></header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
@@ -30,7 +30,7 @@
         <h1 id="hero-title">Игорь<br>Ниточкин<span class="name-dot">.</span></h1>
         <p class="hero-statement">Проверяю продукт.<br>Развиваю тестирование.</p>
         <p class="hero-description">Соединяю ручное тестирование Web и API с автоматизацией на Python. Беру инициативу: от первой базы тест-кейсов до проверок, которые можно повторить.</p>
-        <div class="hero-actions"><a class="button" href="#contact">Обсудить работу <span aria-hidden="true">↗</span></a><a class="text-link" href="#case">Мой кейс <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-actions"><a class="button" href="#contact">Обсудить работу <span aria-hidden="true">↗</span></a><a class="text-link" href="#case">Мои кейсы <span aria-hidden="true">↓</span></a></div>
       </div>
       <figure class="hero-portrait">
         <div class="portrait-frame"><img src="avatar.png" alt="Игорь Ниточкин" width="348" height="500" fetchpriority="high"><span class="portrait-tag">Web · API · Automation</span></div>
@@ -48,17 +48,23 @@
         <div class="company"><h3>QUGO<span class="name-dot">.</span></h3><p class="role">QA Engineer</p><p>Апрель 2025 — настоящее время</p><p class="company-description">Финтех-платформа для работы с самозанятыми: регистрация, документы, реестры и выплаты.</p><span class="small-label">ПРОДУКТОВАЯ КОМАНДА</span></div>
         <div class="achievement-list">
           <article><span class="item-number">01</span><div><h3>Создал основу для регресса</h3><p>С нуля подготовил базу из 100+ тест-кейсов. Инициировал переход на новую TMS и работаю с тестовой документацией в Test IT.</p></div></article>
-          <article><span class="item-number">02</span><div><h3>Развиваю автоматизацию</h3><p>Пишу UI/API-автотесты на Python, pytest и Playwright. Расширил API-регресс авторизации и регистрации с 13 до 33 сценариев, добавив 20 новых.</p></div></article>
-          <article><span class="item-number">03</span><div><h3>Улучшил подготовку окружения</h3><p>Перевёл проект автотестов на uv: зафиксировал зависимости, обновил Docker и GitLab CI, настроил кеширование и убрал неиспользуемые зависимости.</p></div></article>
-          <article><span class="item-number">04</span><div><h3>Подключаюсь к новым направлениям</h3><p>Участвовал в запуске KYC, проверял новый тестовый стенд и первым начал тестировать Android-приложение заказчика. Разбираю требования до разработки.</p></div></article>
+          <article><span class="item-number">02</span><div><h3>Развиваю smoke- и E2E-автоматизацию</h3><p>Автоматизирую регистрацию и авторизацию на Python, pytest и Playwright. Добавил smoke-проверки приглашений по телефону, ссылке и через XLSX-реестры. Расширил API-регресс с 13 до 33 сценариев, добавив 20 новых.</p></div></article>
+          <article><span class="item-number">03</span><div><h3>Разработал Happy Path Bot</h3><p>Связал подготовку тест-кейсов с задачами Яндекс Трекера и Test IT. Предусмотрел просмотр черновика, проверку дублей и связывание кейса с задачей. Итоговое содержание проверяет QA.</p></div></article>
+          <article><span class="item-number">04</span><div><h3>Улучшил подготовку окружения</h3><p>Перевёл проект автотестов на uv: зафиксировал зависимости, обновил Docker и GitLab CI, настроил кеширование и убрал неиспользуемые зависимости.</p></div></article>
+          <article><span class="item-number">05</span><div><h3>Подключаюсь к новым направлениям</h3><p>Участвовал в запуске KYC, проверял новый тестовый стенд и первым начал тестировать Android-приложение заказчика. Разбираю требования до разработки.</p></div></article>
         </div>
       </div>
     </section>
     <section class="case-section" id="case" aria-labelledby="case-title"><div class="wrap">
-      <div class="section-topline"><p class="eyebrow">02 / ИЗ ПРАКТИКИ</p><span class="small-label">ОДНА ЗАДАЧА В ДЕТАЛЯХ</span></div>
+      <h2 id="case-title" class="visually-hidden">Кейсы из практики</h2>
+      <div class="section-topline"><p class="eyebrow">02 / ИЗ ПРАКТИКИ</p><span class="small-label">АВТОТЕСТЫ И QA-ПРОЦЕСС</span></div>
       <a class="case-card" href="cases/api-regression.html">
-        <div class="case-copy"><div class="tags"><span>Python</span><span>pytest</span><span>REST API</span></div><h2 id="case-title">Расширил API-регресс.<br>Проверил состояние<br>за ответом API.</h2><p>Авторизация, регистрационный контекст и удаление профиля: какие сценарии добавил и как проверял результат.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">↗</span></span></div>
+        <div class="case-copy"><div class="tags"><span>Python</span><span>pytest</span><span>REST API</span></div><h3>Расширил API-регресс.<br>Проверил состояние<br>за ответом API.</h3><p>Авторизация, регистрационный контекст и удаление профиля: какие сценарии добавил и как проверял результат.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">↗</span></span></div>
         <div class="case-visual" aria-label="13 существующих сценариев плюс 20 новых, всего 33"><p class="small-label">СЦЕНАРИИ API-РЕГРЕССА</p><div class="case-numbers"><span>13</span><span class="metric-arrow" aria-hidden="true">→</span><strong>33</strong></div><div class="coverage-bar" aria-hidden="true"><span></span><span></span></div><div class="bar-legend"><span><i class="legend-old" aria-hidden="true"></i>13 существовавших</span><span><i class="legend-new" aria-hidden="true"></i>20 добавленных мной</span></div><p class="metric-note">Состав набора после изменения.</p></div>
+      </a>
+      <a class="case-card" href="cases/happy-path-bot.html">
+        <div class="case-copy"><div class="tags"><span>Python</span><span>Яндекс Трекер</span><span>Test IT</span></div><h3>Happy Path Bot.<br>От задачи — к черновику<br>тест-кейса.</h3><p>Разработал инструмент, который связывает требования и тестовую документацию. Просмотр перед записью, проверка дублей и контроль результата со стороны QA.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">↗</span></span></div>
+        <div class="case-visual bot-visual"><p class="small-label">ПОДГОТОВКА ТЕСТОВОЙ ДОКУМЕНТАЦИИ</p><ol class="bot-steps"><li><span>01</span><div><strong>Задача в трекере</strong><small>Описание и связанные задачи</small></div></li><li><span>02</span><div><strong>Черновик тест-кейса</strong><small>Структура и предварительный просмотр</small></div></li><li><span>03</span><div><strong>Кейс в Test IT</strong><small>Проверка дубля и связь с задачей</small></div></li></ol><p class="metric-note">Финальную проверку содержания выполняет QA.</p></div>
       </a>
     </div></section>
     <section class="wrap section" id="approach" aria-labelledby="approach-title">
@@ -71,8 +77,10 @@
       <div class="stack-section"><h3>Инструменты в работе</h3><dl class="stack-list">
         <div><dt>Web и API</dt><dd>DevTools · Postman · Swagger / OpenAPI<span>Функциональное, интеграционное и регрессионное тестирование</span></dd></div>
         <div><dt>Автоматизация</dt><dd>Python · pytest · Playwright · Allure<span>UI/API-автотесты, фикстуры, Page Object, проверки контрактов</span></dd></div>
-        <div><dt>Данные и диагностика</dt><dd>SQL · PostgreSQL · Grafana<span>Проверка состояния данных, анализ запросов и логов</span></dd></div>
-        <div><dt>Процесс и окружение</dt><dd>Git · GitLab CI · Docker · uv · Test IT<span>Тестовая документация, зависимости и запуск автотестов</span></dd></div>
+        <div><dt>Данные и диагностика</dt><dd>SQL · PostgreSQL · Grafana · OpenSearch<span>Проверка состояния данных, поиск и анализ логов</span></dd></div>
+        <div><dt>Окружение и запуск</dt><dd>Git · GitLab CI · Docker · uv<span>Зависимости, подготовка окружения и запуск автотестов</span></dd></div>
+        <div><dt>Требования и процесс</dt><dd>Test IT · Яндекс Трекер · Яндекс Вики · Figma<span>Тест-кейсы, задачи, документация и проверка макетов</span></dd></div>
+        <div><dt>ИИ-инструменты</dt><dd>Использую в повседневной QA-работе<span>Проверяю результат и отвечаю за итоговое решение</span></dd></div>
       </dl></div>
     </section>
     <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap contact">
