@@ -1,141 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игорь — QA Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="favicon.png" href="favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="MyWebSite" />
-<link rel="manifest" href="site.webmanifest" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Игорь Ниточкин — QA Engineer в финтехе. Ручное тестирование Web и API, автоматизация на Python, pytest и Playwright. Опыт, результаты и кейсы.">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta property="og:title" content="Игорь Ниточкин · QA Engineer">
+  <meta property="og:description" content="Проверяю продукт. Развиваю тестирование. Web, API и автоматизация на Python.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://igornitqa.github.io/">
+  <meta property="og:image" content="https://igornitqa.github.io/avatar.png">
+  <link rel="canonical" href="https://igornitqa.github.io/">
+  <link rel="icon" href="mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Игорь Ниточкин · QA Engineer</title>
 </head>
 <body>
-    <!-- Шапка с улучшенной навигацией -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link">Главная</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">Резюме</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Навыки</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-   <!-- Главный экран с параллакс-эффектом -->
-<section id="home" class="hero">
-    <div class="hero__content">
-      <div class="hero__avatar-container">
-        <img src="avatar.png" alt="Игорь" class="hero__avatar">
-        </div>
-        <h1 class="hero__title">Привет, я — Игорь</h1>
-        <p class="hero__subtitle">QA Engineer & Тестировщик ПО</p>
-        <a href="resume.pdf" class="btn hero__btn" download>Скачать резюме</a>
-    </div>
-</section>
-
-    <!-- Блок с персональными данными и анимацией -->
-    <div class="frame-container">
-    <section class="info-panel">
-        <div class="container">
-            <div class="info-panel__inner">
-                <div class="info-panel__left">
-                    <h3 class="info-panel__title">Персональные данные</h3>
-                    <ul class="info-panel__list">
-                        <li>Email: <a href="mailto:6660467@gmail.com">initochkin@yandex.ru</a></li>
-                        <li>Языки: Русский, Английский</li>
-                        <li>Национальность: Россия</li>
-                    </ul>
-                </div>
-                <div class="info-panel__right">
-                    <h2 class="info-panel__headline">
-                        Я — <span class="animated-text"></span>
-                    </h2>
-                    <p class="info-panel__description">
-                        Тестировщик с небольшим опытом функционального и нефункционального тестирования веб-приложений, десктопных программ и API
-                    </p>
-                </div>
-            </div>
-        </div>
+  <a class="skip-link" href="#main">К содержимому</a>
+  <header class="site-header"><div class="wrap header-inner">
+    <a class="brand" href="#main" aria-label="Игорь Ниточкин, на главную"><span class="brand-mark">ин.</span><span>QA ENGINEER</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Меню <span aria-hidden="true">+</span></button>
+    <nav id="main-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#case">Кейс</a><a href="#approach">Подход</a><a href="#contact">Контакты</a><a class="nav-download" href="resume.pdf" download="Igor-Nitochkin-QA.pdf">Резюме PDF <span aria-hidden="true">↗</span></a></nav>
+  </div></header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> QA ENGINEER · ФИНТЕХ</p>
+        <h1 id="hero-title">Игорь<br>Ниточкин<span class="name-dot">.</span></h1>
+        <p class="hero-statement">Проверяю продукт.<br>Развиваю тестирование.</p>
+        <p class="hero-description">Соединяю ручное тестирование Web и API с автоматизацией на Python. Беру инициативу: от первой базы тест-кейсов до проверок, которые можно повторить.</p>
+        <div class="hero-actions"><a class="button" href="#contact">Обсудить работу <span aria-hidden="true">↗</span></a><a class="text-link" href="#case">Мой кейс <span aria-hidden="true">↓</span></a></div>
+      </div>
+      <figure class="hero-portrait">
+        <div class="portrait-frame"><img src="avatar.png" alt="Игорь Ниточкин" width="348" height="500" fetchpriority="high"><span class="portrait-tag">Web · API · Automation</span></div>
+        <figcaption><span>Краснодар · UTC+3</span><span>Работаю удалённо</span></figcaption>
+      </figure>
     </section>
-
-    <section id="skills">
-  <div class="skills-container">
-    <!-- Заголовок секции -->
-    <h2>Навыки и стек</h2>
-
-    <!-- Сетка карточек навыков -->
-    <div class="skills-grid">
-      <div class="skill-card">
-        <img src="iconsdevtools.png" alt="DevTools">
-        <h3>DevTools</h3>
-        <p>Тестирования front-части web-приложений</p>
-      </div>
-      <div class="skill-card">
-        <img src="iconspostman.png" alt="Postman">
-        <h3>Postman</h3>
-        <p>Тестирование API и веб-сервисов.</p>
-      </div>
-      <div class="skill-card">
-        <img src="iconsgit.png" alt="Git">
-        <h3>Git</h3>
-        <p>Система контроля версий для управления кодом.</p>
-      </div>
-      <div class="skill-card">
-        <img src="miro.png" alt="Miro">
-        <h3>Miro</h3>
-        <p>Визуализации сложной архитектуры и ландшафтов.</p>
-      </div>
-      <div class="skill-card">
-        <img src="charles.png" alt="Charles">
-        <h3>Charles</h3>
-        <p>Возможность просмотра трафика.</p>
-      </div>
-      <div class="skill-card">
-        <img src="iconsposgre.png" alt="SQL">
-        <h3>PostgreSQL</h3>
-        <p>Работа с базами данных и запросами.</p>
-      </div>
-      <div class="skill-card">
-        <img src="iconsswagger.png" alt="Swager">
-        <h3>Swager</h3>
-        <p>Для тестирования API и документации по API.</p>
-      </div>
-      <div class="skill-card">
-        <img src="Tracker.png" alt="YaTracker">
-        <h3>YaTracker</h3>
-        <p>Организация ежедневной работы и написание багрепортов.</p>
-      </div>
-      <div class="skill-card">
-        <img src="testit.png" alt="TestIT">
-        <h3>TestIT</h3>
-        <p>Написание тест-кейсов.</p>
-      </div>
+    <div class="wrap facts" aria-label="Опыт в цифрах">
+      <div><strong>2025<span> / апрель</span></strong><p>Начал работать QA в финтехе</p></div>
+      <div><strong>100+</strong><p>Тест-кейсов в базе, созданной с нуля</p></div>
+      <div><strong>20</strong><p>Новых сценариев в API-регрессе</p></div>
     </div>
-
-    <!-- Блок с контактной информацией -->
-    <div class="contact-info">
-      <h2>Контактная информация</h2>
-      <p><strong>Email:</strong> initochkin@yandex.ru</p>
-      <p><strong>Телефон:</strong> +7 (965) 459-13-81</p>
-      <p><strong>Адрес:</strong> Краснодар, Россия</p>
-    </div>
-  </div>
-</section>
-
-    <!-- Улучшенный подвал -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer__text">&copy; 2025 Игорь. Все права защищены.</p>
+    <section class="wrap section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><p class="eyebrow">01 / ОПЫТ И ИНИЦИАТИВА</p><h2 id="experience-title">Беру задачу.<br>Довожу до проверок.</h2></div>
+      <div class="experience-layout">
+        <div class="company"><h3>QUGO<span class="name-dot">.</span></h3><p class="role">QA Engineer</p><p>Апрель 2025 — настоящее время</p><p class="company-description">Финтех-платформа для работы с самозанятыми: регистрация, документы, реестры и выплаты.</p><span class="small-label">ПРОДУКТОВАЯ КОМАНДА</span></div>
+        <div class="achievement-list">
+          <article><span class="item-number">01</span><div><h3>Создал основу для регресса</h3><p>С нуля подготовил базу из 100+ тест-кейсов. Инициировал переход на новую TMS и работаю с тестовой документацией в Test IT.</p></div></article>
+          <article><span class="item-number">02</span><div><h3>Развиваю автоматизацию</h3><p>Пишу UI/API-автотесты на Python, pytest и Playwright. Расширил API-регресс авторизации и регистрации с 13 до 33 сценариев, добавив 20 новых.</p></div></article>
+          <article><span class="item-number">03</span><div><h3>Улучшил подготовку окружения</h3><p>Перевёл проект автотестов на uv: зафиксировал зависимости, обновил Docker и GitLab CI, настроил кеширование и убрал неиспользуемые зависимости.</p></div></article>
+          <article><span class="item-number">04</span><div><h3>Подключаюсь к новым направлениям</h3><p>Участвовал в запуске KYC, проверял новый тестовый стенд и первым начал тестировать Android-приложение заказчика. Разбираю требования до разработки.</p></div></article>
         </div>
-    </footer>
-
-    <!-- Скрипты вынесены в отдельный файл -->
-    <script src="script.js"></script>
+      </div>
+    </section>
+    <section class="case-section" id="case" aria-labelledby="case-title"><div class="wrap">
+      <div class="section-topline"><p class="eyebrow">02 / ИЗ ПРАКТИКИ</p><span class="small-label">ОДНА ЗАДАЧА В ДЕТАЛЯХ</span></div>
+      <a class="case-card" href="cases/api-regression.html">
+        <div class="case-copy"><div class="tags"><span>Python</span><span>pytest</span><span>REST API</span></div><h2 id="case-title">Расширил API-регресс.<br>Проверил состояние<br>за ответом API.</h2><p>Авторизация, регистрационный контекст и удаление профиля: какие сценарии добавил и как проверял результат.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">↗</span></span></div>
+        <div class="case-visual" aria-label="13 существующих сценариев плюс 20 новых, всего 33"><p class="small-label">СЦЕНАРИИ API-РЕГРЕССА</p><div class="case-numbers"><span>13</span><span class="metric-arrow" aria-hidden="true">→</span><strong>33</strong></div><div class="coverage-bar" aria-hidden="true"><span></span><span></span></div><div class="bar-legend"><span><i class="legend-old" aria-hidden="true"></i>13 существовавших</span><span><i class="legend-new" aria-hidden="true"></i>20 добавленных мной</span></div><p class="metric-note">Состав набора после изменения.</p></div>
+      </a>
+    </div></section>
+    <section class="wrap section" id="approach" aria-labelledby="approach-title">
+      <div class="section-heading"><p class="eyebrow">03 / КАК Я РАБОТАЮ</p><h2 id="approach-title">От требований<br>к проверяемому результату.</h2></div>
+      <div class="approach-grid">
+        <article><span class="approach-index">[ 01 ]</span><h3>Уточняю поведение</h3><p>Разбираю бизнес-сценарий, ограничения и пограничные случаи. Поднимаю противоречия в требованиях до реализации.</p></article>
+        <article><span class="approach-index">[ 02 ]</span><h3>Ищу подтверждение</h3><p>Сопоставляю действие в интерфейсе, HTTP-запрос, данные в БД и логи. Отделяю наблюдаемый факт от предположения.</p></article>
+        <article><span class="approach-index">[ 03 ]</span><h3>Делаю повторяемым</h3><p>Фиксирую сценарий в тест-кейсе или автотесте. Продумываю подготовку данных, проверки и очистку после запуска.</p></article>
+      </div>
+      <div class="stack-section"><h3>Инструменты в работе</h3><dl class="stack-list">
+        <div><dt>Web и API</dt><dd>DevTools · Postman · Swagger / OpenAPI<span>Функциональное, интеграционное и регрессионное тестирование</span></dd></div>
+        <div><dt>Автоматизация</dt><dd>Python · pytest · Playwright · Allure<span>UI/API-автотесты, фикстуры, Page Object, проверки контрактов</span></dd></div>
+        <div><dt>Данные и диагностика</dt><dd>SQL · PostgreSQL · Grafana<span>Проверка состояния данных, анализ запросов и логов</span></dd></div>
+        <div><dt>Процесс и окружение</dt><dd>Git · GitLab CI · Docker · uv · Test IT<span>Тестовая документация, зависимости и запуск автотестов</span></dd></div>
+      </dl></div>
+    </section>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap contact">
+      <div><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> ОТКРЫТ К ПРЕДЛОЖЕНИЯМ</p><h2 id="contact-title">Давайте<br>познакомимся<span class="name-dot">.</span></h2><p class="contact-description">Рассматриваю удалённую работу QA Engineer: ручное тестирование Web/API и развитие автоматизации на Python.</p></div>
+      <div class="contact-links"><a class="contact-primary" href="https://t.me/i_nitochkin" target="_blank" rel="noopener noreferrer"><span><small>TELEGRAM</small>@i_nitochkin</span><span aria-hidden="true">↗</span></a><div class="email-row"><a href="mailto:igor.nitochkin@gmail.com">igor.nitochkin@gmail.com</a><button class="copy-email" type="button" data-copy-email="igor.nitochkin@gmail.com" aria-label="Скопировать email">Копировать</button></div><p class="copy-status" role="status" aria-live="polite"></p><div class="contact-secondary"><a href="https://hh.ru/resume/306d67f1ff0e94d76b0039ed1f4e475a566e42" target="_blank" rel="noopener noreferrer">Резюме на hh.ru ↗</a><a href="https://github.com/IgornitQA" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="resume.pdf" download="Igor-Nitochkin-QA.pdf">Скачать PDF ↓</a></div></div>
+    </div></section>
+  </main>
+  <footer class="site-footer wrap"><p>© <span data-year>2026</span> Игорь Ниточкин</p><p>Внимание к деталям. Инициатива в работе.</p><a href="#main">Наверх ↑</a></footer>
 </body>
 </html>

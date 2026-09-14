@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Кейс Игоря Ниточкина: 20 новых сценариев API-регресса, фикстуры тестовых данных, проверки контрактов и состояния в БД. Python, pytest, Allure.">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta property="og:title" content="API-регресс: с 13 до 33 сценариев · Игорь Ниточкин">
+  <meta property="og:description" content="Как расширил проверки авторизации, регистрационного контекста и удаления профиля.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://igornitqa.github.io/cases/api-regression.html">
+  <link rel="icon" href="../mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css"><script src="../script.js" defer></script>
+  <title>API-регресс: с 13 до 33 сценариев · Игорь Ниточкин</title>
+</head>
+<body class="case-page">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html" aria-label="Игорь Ниточкин, на главную"><span class="brand-mark">ин.</span><span>QA ENGINEER</span></a><a class="case-back" href="../index.html#contact">Связаться ↗</a></div></header>
+  <main id="main" class="wrap">
+    <section class="case-hero" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../index.html#case">← К портфолио</a>
+      <p class="eyebrow">КЕЙС / АВТОМАТИЗАЦИЯ API</p>
+      <h1 id="case-title">API-регресс:<br>с 13 до 33 сценариев<span class="name-dot">.</span></h1>
+      <p class="case-lead">Расширил проверки авторизации и регистрационного контекста. Добавил проверки контрактов, подготовку одноразовых пользователей и независимую проверку состояния данных после удаления профиля.</p>
+      <div class="case-meta"><div><span>ПРОЕКТ</span>QUGO · финтех</div><div><span>ПЕРИОД</span>Август 2026</div><div><span>ИНСТРУМЕНТЫ</span>Python · pytest · REST API · Pydantic · SQL · Allure</div></div>
+      <div class="case-metrics" aria-label="Состав набора после изменения"><div><strong>13</strong><p>Было в наборе</p></div><div><strong class="accent">+20</strong><p>Добавлено мной</p></div><div><strong>33</strong><p>Стало в наборе</p></div></div>
+    </section>
+    <div class="article-layout">
+      <nav class="article-toc" aria-label="Содержание кейса"><a href="#context">01 · Задача</a><a href="#contribution">02 · Мой вклад</a><a href="#checks">03 · Как проверял</a><a href="#result">04 · Результат</a></nav>
+      <article class="case-article">
+        <section id="context"><h2>Задача</h2><p>В проекте уже существовали 13 API-сценариев авторизации. Нужно было расширить регресс и актуализировать ожидания: проверить больше вариантов входа, получение регистрационного контекста, валидацию параметров и удаление профиля.</p><p>Работал с существующим набором: сохранил предыдущие сценарии, уточнил проверки и добавил новые. Мой вклад в расширение — <strong>20 сценариев</strong>.</p></section>
+        <section id="contribution"><h2>Что сделал</h2>
+          <table class="case-table"><caption class="visually-hidden">Добавленные сценарии API-регресса по направлениям</caption><thead><tr><th scope="col">Направление</th><th scope="col">Что добавил</th><th scope="col">Сценарии</th></tr></thead><tbody><tr><td>Авторизация</td><td>Дополнительные варианты входа и проверки некорректных телефона и кода.</td><td>4</td></tr><tr><td>Регистрация</td><td>Регистрационный контекст, обязательные поля, некорректные параметры, статусы доступа и отсутствующие данные.</td><td>15</td></tr><tr><td>Удаление профиля</td><td>Удаление одноразового пользователя с проверкой ожидаемого изменения данных в БД.</td><td>1</td></tr></tbody><tfoot><tr><td colspan="2">Всего новых сценариев</td><td>20</td></tr></tfoot></table>
+          <p>Дополнительно актуализировал проверки существующих сценариев: сессии, обновление токена и профиль. Разделил API-клиенты, модели данных и проверки ответов, подготовил фикстуры для тестовых пользователей.</p>
+          <h3>Поддержка и диагностика</h3><ul><li>Использовал модели Pydantic и отдельные проверки контрактов ответов.</li><li>Добавил маскирование токенов, паролей и числовых OTP во вложениях Allure.</li><li>Связал API-проверки с тестовой документацией, обозначив границы автоматизированного покрытия.</li></ul>
+        </section>
+        <section id="checks"><h2>Как проверял результат</h2>
+          <p>Для сценария удаления профиля проверки строились в три этапа:</p>
+          <div class="test-flow" aria-label="Подготовка, действие и проверка результата"><div><small>01 / ПОДГОТОВКА</small><strong>Одноразовый пользователь</strong><p>Фикстура создаёт пользователя и проверяет, что его профиль доступен.</p></div><div><small>02 / ДЕЙСТВИЕ</small><strong>Запрос к API</strong><p>Тест получает OTP и выполняет запрос на удаление профиля.</p></div><div><small>03 / ПРОВЕРКА</small><strong>Ответ и состояние БД</strong><p>Проверяет ответ API и ожидаемое изменение телефона в базе.</p></div></div>
+          <p>Такая проверка подтверждает конкретное постусловие операции: телефон в БД изменился ожидаемым образом. Одного успешного ответа API для этого было бы недостаточно.</p>
+          <p>Подготовку и очистку данных вынес в фикстуры. Предусмотрел уборку одноразового пользователя, если сценарий не дошёл до удаления.</p>
+        </section>
+        <section id="result"><h2>Что получилось</h2>
+          <p><strong>Набор вырос с 13 до 33 сценариев.</strong> Регресс охватил дополнительные варианты авторизации, регистрационный контекст и удаление профиля. Проверки стали учитывать контракты ответов и состояние данных, а подготовка пользователей — повторяемой.</p>
+          <p>Для меня это пример инициативы внутри существующего проекта: найти пробелы в покрытии, добавить нужные сценарии и подготовить их к дальнейшей поддержке.</p>
+          <div class="case-note"><p><strong>Область покрытия.</strong> Здесь описаны API-проверки авторизации и регистрационного контекста. OTP тесты получают из тестовой инфраструктуры; проверка доставки сообщений и полный UI-путь регистрации выходят за рамки кейса. Число 33 — состав набора после изменения, без утверждения о текущем результате CI.</p></div>
+        </section>
+        <div class="case-end"><p>Кейс описывает личный вклад. Примеры обобщены без публикации закрытого кода, внутренних адресов и данных пользователей.</p><a class="button" href="../index.html#contact">Обсудить опыт <span aria-hidden="true">↗</span></a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p>© <span data-year>2026</span> Игорь Ниточкин</p><a href="../index.html">На главную ↗</a></footer>
+</body>
+</html>
