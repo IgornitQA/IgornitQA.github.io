@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://igornitqa.github.io/avatar.png">
   <link rel="canonical" href="https://igornitqa.github.io/">
   <link rel="icon" href="mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260915-4">
   <script src="script.js" defer></script>
   <title>Игорь Ниточкин · QA Automation Engineer (Python)</title>
 </head>
@@ -37,10 +37,10 @@
         <figcaption><span>Краснодар · UTC+3</span><span>Работаю удалённо</span></figcaption>
       </figure>
     </section>
-    <div class="wrap facts" aria-label="Основные направления работы">
-      <div><strong>UI + API</strong><p>Автотесты · контракты · данные</p></div>
-      <div><strong>Финтех</strong><p>Интеграции · реестры · выплаты</p></div>
-      <div><strong>AI в QA</strong><p>Требования · кейсы · диагностика</p></div>
+    <div class="wrap facts" aria-label="Результаты автоматизации">
+      <div><strong>85 → 43–45 <span>с</span></strong><p>Один E2E регистрации на тестовом стенде. Время приблизительное.</p></div>
+      <div><strong>33 <span>сценария</span></strong><p>API-регресс: добавил 20 новых к 13 существовавшим.</p></div>
+      <div><strong>Production</strong><p>Подготовил и запускал отдельные UI-проверки авторизации и регистрации.</p></div>
     </div>
     <section class="wrap section" id="experience" aria-labelledby="experience-title">
       <div class="section-heading"><p class="eyebrow">01 / ОПЫТ И ИНИЦИАТИВА</p><h2 id="experience-title">Беру задачу.<br>Довожу до проверок.</h2></div>
@@ -48,10 +48,11 @@
         <div class="company"><h3>QUGO<span class="name-dot">.</span></h3><p class="role">QA Engineer · автоматизация</p><p>Апрель 2025 — настоящее время</p><p class="company-description">Финтех-платформа для выплат самозанятым: платёжные реестры, банковские интеграции, проверки ФНС и документооборот.</p><span class="small-label">ПРОДУКТОВАЯ КОМАНДА</span></div>
         <div class="achievement-list">
           <article><span class="item-number">01</span><div><h3>Автоматизирую критичные сценарии</h3><p>Пишу smoke- и E2E-проверки регистрации, авторизации и приглашений на Python, pytest и Playwright. В API-регрессе использую одноразовых пользователей, Pydantic-контракты и проверки постусловий в БД.</p><p>В одном E2E регистрации на тестовом стенде сократил время примерно с 85 до 43–45 секунд: переработал ожидание OTP и убрал повторные действия.</p></div></article>
-          <article><span class="item-number">02</span><div><h3>Выстроил работу с AI в QA</h3><p>Настроил переиспользуемые инструкции для ревью ТЗ, тест-дизайна и расследования багов. Использую MCP для работы с контекстом задач и БД, сопоставляю выводы с интерфейсом, запросами и логами.</p></div></article>
-          <article><span class="item-number">03</span><div><h3>Автоматизировал подготовку тест-кейсов</h3><p>Создал базу из 100+ кейсов и инициировал переход на Test IT. Разработал Happy Path Bot: черновик из задачи Яндекс Трекера, проверка структуры и дублей, запись в TMS и связь с задачей.</p></div></article>
+          <article><span class="item-number">02</span><div><h3>Выстроил работу с AI в QA</h3><p>Настроил переиспользуемые инструкции для ревью ТЗ, тест-дизайна и расследования багов. Использую MCP для работы с контекстом задач и БД. Локализую дефекты по цепочке: требование → UI → HTTP-запрос → состояние в БД → логи.</p></div></article>
+          <article><span class="item-number">03</span><div><h3>Автоматизировал путь от задачи до тест-кейсов</h3><p>Создал базу из 100+ кейсов и инициировал переход на Test IT. Автоматизировал подготовку черновиков по задачам Яндекс Трекера и перенос проверенных кейсов в TMS: проверку структуры, поиск дублей и связь с задачей. Для этого разработал Happy Path Bot.</p></div></article>
           <article><span class="item-number">04</span><div><h3>Настроил окружение и запуск тестов</h3><p>Перевёл проект на uv: зафиксировал зависимости, обновил Docker и GitLab CI, настроил кеширование. Подготовил и запускал отдельные UI-проверки авторизации и регистрации на production.</p></div></article>
-          <article><span class="item-number">05</span><div><h3>Подключаюсь к новым направлениям</h3><p>Участвовал в запуске KYC, проверял новый тестовый стенд и первым начал тестировать Android-приложение заказчика. Разбираю требования до разработки.</p></div></article>
+          <article><span class="item-number">05</span><div><h3>Проектирую проверки по требованиям</h3><p>Использую таблицы решений для сочетаний условий, классы эквивалентности и граничные значения для валидаций, модели переходов состояний для регистрации и проверок самозанятого. Продумываю ошибки интеграций, повторы и восстановление. Фиксирую противоречия и пропущенные сценарии при ревью ТЗ.</p></div></article>
+          <article><span class="item-number">06</span><div><h3>Проверяю финтех-сценарии и новые направления</h3><p>Работаю с банковскими и налоговыми интеграциями: регистрацией самозанятых, статусами проверок, выплатами и реестрами. Участвовал в запуске KYC, проверял новый тестовый стенд и первым начал тестировать Android-приложение заказчика.</p></div></article>
         </div>
       </div>
     </section>
