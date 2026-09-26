@@ -23,6 +23,20 @@ python -m http.server 4173 --bind 127.0.0.1
 - `resume.pdf` — одностраничное резюме с актуальными контактами.
 - `avatar.png`, `mark.svg` — фотография и значок сайта.
 
+## Автотесты сайта
+
+[![Автотесты сайта](https://github.com/igornitqa/igornitqa.github.io/actions/workflows/site-tests.yml/badge.svg)](https://github.com/igornitqa/igornitqa.github.io/actions/workflows/site-tests.yml)
+
+pytest + Playwright в `tests/`: страницы открываются без ошибок консоли и битых запросов; внутренние ссылки, якоря и ресурсы отвечают 200; нет горизонтального скролла на телефоне, планшете и десктопе; мобильное меню и копирование email работают; axe-core без нарушений serious/critical; PDF-резюме валидно, а email и Telegram в нём совпадают с сайтом. CI гоняет набор на каждый push и PR, по понедельникам — по опубликованному сайту вместе с внешними ссылками.
+
+```sh
+cd tests
+python -m venv .venv && .venv/Scripts/pip install -r requirements.txt   # Linux/macOS: .venv/bin/pip
+.venv/Scripts/python -m playwright install chromium
+.venv/Scripts/python -m pytest                     # локальный сервер поднимается сам
+SITE_URL=https://igornitqa.github.io .venv/Scripts/python -m pytest -m ""   # опубликованный сайт + внешние ссылки
+```
+
 ## Перед публикацией
 
 Проверить формулировки опыта и контакты, открыть главную и кейсы на компьютере и телефоне, проверить скачивание PDF. Число сценариев в API-кейсе относится к составу набора после изменения, а не к текущему статусу CI. Закрытый код, внутренние адреса и данные пользователей в публикацию не включаются.
