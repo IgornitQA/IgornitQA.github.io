@@ -27,7 +27,6 @@ def test_images_have_alt(open_page, path):
     assert not without_alt, f"картинки без alt: {without_alt}"
 
 
-@pytest.mark.xfail(strict=True, reason="cases/happy-path-bot.html пока не связан с главной (находка 26.09, решение за Игорем); когда ссылка появится — снять пометку")
 def test_every_case_page_is_linked_from_main(open_page):
     page = open_page("/")
     linked = {href.split("?")[0] for href in page.eval_on_selector_all("a[href*='cases/']", "a => a.map(x => x.getAttribute('href'))")}
