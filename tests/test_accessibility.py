@@ -10,8 +10,10 @@ BLOCKING = {"serious", "critical"}
 
 
 @pytest.mark.parametrize("path", PAGES)
-def test_no_serious_accessibility_violations(open_page, path):
-    page = open_page(path)
+def test_no_serious_accessibility_violations(page, open_page, path):
+    # Проверяем конечное состояние: во время анимации полупрозрачный текст даёт ложный контраст
+    page.emulate_media(reduced_motion="reduce")
+    open_page(path)
     results = Axe().run(page)
     violations = [
         f"[{v['impact']}] {v['id']}: {v['help']} ({len(v['nodes'])} эл.)"
