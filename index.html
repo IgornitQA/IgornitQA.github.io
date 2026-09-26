@@ -12,8 +12,8 @@
   <meta property="og:image" content="https://igornitqa.github.io/avatar.png">
   <link rel="canonical" href="https://igornitqa.github.io/">
   <link rel="icon" href="mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260926-3">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260926-4">
+  <script src="script.js?v=20260926-4" defer></script>
   <title>Игорь Ниточкин · QA Automation Engineer (Python)</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
   <header class="site-header"><div class="wrap header-inner">
     <a class="brand" href="#main" aria-label="Игорь Ниточкин, на главную"><span class="brand-mark">ин.</span><span>qa automation</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Меню <span aria-hidden="true">+</span></button>
-    <nav id="main-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#case">Кейсы</a><a href="#approach">Подход</a><a href="#contact">Контакты</a><a class="nav-download" href="resume.pdf?v=20260915-5" download="Igor-Nitochkin-QA.pdf">Резюме PDF <span aria-hidden="true">↓</span></a></nav>
+    <nav id="main-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#case">Кейсы</a><a href="#approach">Подход</a><a href="#contact">Контакты</a><a class="nav-download" href="resume.pdf?v=20260915-5" download="Igor-Nitochkin-QA.pdf">Резюме PDF <span aria-hidden="true">↓︎</span></a></nav>
   </div></header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
@@ -30,8 +30,8 @@
         <h1 id="hero-title">Игорь Ниточкин</h1>
         <p class="hero-role">QA Automation Engineer · Python · финтех</p>
         <p class="hero-statement">Проверяю финтех-сценарии от интерфейса до записи в базе данных.</p>
-        <p class="hero-description">Пишу UI/API-автотесты на Python: pytest, Playwright, проверки контрактов и состояния в БД. Автоматизирую регистрацию и приглашения, работаю с платёжными сценариями.</p>
-        <div class="hero-actions"><a class="button" href="#contact">Обсудить работу <span aria-hidden="true">→</span></a><a class="text-link" href="#case">Кейсы <span aria-hidden="true">↓</span></a></div>
+        <p class="hero-description">Пишу UI- и API-автотесты на Python: pytest, Playwright, Pydantic-контракты. Автоматизирую регистрацию и приглашения, работаю с платёжными сценариями.</p>
+        <div class="hero-actions"><a class="button" href="#contact">Обсудить работу <span aria-hidden="true">→︎</span></a><a class="text-link" href="#case">Кейсы <span aria-hidden="true">↓︎</span></a></div>
       </div>
       <figure class="hero-portrait">
         <img src="avatar.png" alt="Игорь Ниточкин" width="348" height="500" fetchpriority="high">
@@ -40,7 +40,7 @@
     </section>
 
     <section class="wrap run-summary" aria-labelledby="summary-title">
-      <div class="run-head"><h2 id="summary-title">Результаты</h2><span>QUGO · тестовые стенды</span></div>
+      <div class="run-head"><h2 id="summary-title">Результаты</h2><span class="run-state" aria-hidden="true"><span class="run-bar"><i></i></span><b>3 passed</b></span><span class="run-scope">QUGO · тестовые стенды</span></div>
       <dl class="run-rows">
         <div><dt>E2E регистрации</dt><dd><strong>~85 → 43–45 с</strong><span>Переработал ожидание OTP и убрал повторные действия в одном E2E-сценарии.</span></dd></div>
         <div><dt>API-регресс</dt><dd><strong>13 → 33 сценария</strong><span>Добавил 20 новых сценариев к существовавшим.</span></dd></div>
@@ -66,9 +66,9 @@
       <div class="section-head"><h2 id="case-title">Кейсы</h2><p>Каждый кейс — в формате тест-кейса: что дано, что делаю, чем подтверждаю</p></div>
 
       <a class="case-card" href="cases/api-regression.html">
-        <div class="case-copy"><div class="tags"><span>pytest</span><span>Pydantic</span><span>SQL</span></div><h3>API-регресс: от контракта ответа к состоянию в БД</h3><p>Одноразовые пользователи через фикстуры, проверки схем и постусловий, очистка данных и маскирование секретов в Allure.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">→</span></span></div>
+        <div class="case-copy"><div class="tags"><span>pytest</span><span>Pydantic</span><span>SQL</span></div><h3>API-регресс: от контракта ответа к состоянию в БД</h3><p>Одноразовые пользователи через фикстуры, проверки схем и постусловий, очистка данных и маскирование секретов в Allure.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">→︎</span></span></div>
         <div class="case-visual">
-          <dl class="tc"><div><dt>Предусловие</dt><dd>Одноразовый пользователь из фикстуры</dd></div><div><dt>Шаг</dt><dd>Запрос к API сценария</dd></div><div><dt>Ожидаемо</dt><dd>Статус, поля и Pydantic-модель ответа</dd></div><div><dt>Доказательство</dt><dd>Постусловие в БД — независимая проверка изменения данных</dd></div></dl>
+          <dl class="tc"><div><dt>Предусловие</dt><dd>Одноразовый пользователь из фикстуры</dd></div><div><dt>Шаги</dt><dd>Запрос к API сценария</dd></div><div><dt>Ожидаемый результат</dt><dd>Статус, поля и Pydantic-модель ответа</dd></div><div><dt>Чем подтверждено</dt><dd>Постусловие в БД — независимая проверка изменения данных</dd></div></dl>
           <figure class="snippet"><pre><code><span class="kw">def</span> test_registration_creates_account(api, disposable_user, db):
     response = api.register(disposable_user)
 
@@ -79,16 +79,16 @@
       </a>
 
       <a class="case-card" href="cases/ai-in-qa.html?v=20260915-5">
-        <div class="case-copy"><div class="tags"><span>AI</span><span>Тест-дизайн</span><span>Диагностика</span></div><h3>AI в QA-цикле: от ревью требований до разбора падений</h3><p>Как получаю вопросы к противоречивым требованиям, готовлю проверяемые сценарии и разбираю сбои на тестовых окружениях.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">→</span></span></div>
+        <div class="case-copy"><div class="tags"><span>AI</span><span>Тест-дизайн</span><span>Диагностика</span></div><h3>AI в QA-цикле: от ревью требований до разбора падений</h3><p>Как получаю вопросы к противоречивым требованиям, готовлю проверяемые сценарии и разбираю сбои на тестовых окружениях.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">→︎</span></span></div>
         <div class="case-visual">
-          <dl class="tc"><div><dt>Вход</dt><dd>Требования и макеты</dd></div><div><dt>Шаг</dt><dd>Сценарии, противоречия, вопросы команде</dd></div><div><dt>Ожидаемо</dt><dd>Тест-кейсы и автотесты: черновик, ревью, воспроизводимый запуск</dd></div><div><dt>Доказательство</dt><dd>БД, логи и CI — факты для диагностики и проверки гипотез</dd></div></dl>
+          <dl class="tc"><div><dt>Предусловие</dt><dd>Требования и макеты</dd></div><div><dt>Шаги</dt><dd>Сценарии, противоречия, вопросы команде</dd></div><div><dt>Ожидаемый результат</dt><dd>Тест-кейсы и автотесты: черновик, ревью, воспроизводимый запуск</dd></div><div><dt>Чем подтверждено</dt><dd>БД, логи и CI — факты для диагностики и проверки гипотез</dd></div></dl>
         </div>
       </a>
 
       <a class="case-card" href="cases/happy-path-bot.html">
-        <div class="case-copy"><div class="tags"><span>Python</span><span>Яндекс Трекер</span><span>Test IT</span></div><h3>Happy Path Bot: от задачи в Трекере к кейсу в Test IT</h3><p>Инструмент готовит черновик happy-path кейса по продуктовой задаче, показывает его до записи и создаёт кейс в Test IT без дублей.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">→</span></span></div>
+        <div class="case-copy"><div class="tags"><span>Python</span><span>Яндекс Трекер</span><span>Test IT</span></div><h3>Happy Path Bot: от задачи в Трекере к кейсу в Test IT</h3><p>Инструмент готовит черновик happy-path кейса по продуктовой задаче, показывает его до записи и создаёт кейс в Test IT без дублей.</p><span class="case-open">Разобрать кейс <span aria-hidden="true">→︎</span></span></div>
         <div class="case-visual">
-          <dl class="tc"><div><dt>Вход</dt><dd>Задача в Яндекс Трекере и связанная happy-path задача</dd></div><div><dt>Шаг</dt><dd>Черновик кейса, проверка структуры, просмотр без записи</dd></div><div><dt>Ожидаемо</dt><dd>Кейс в Test IT, связанный с задачей</dd></div><div><dt>Доказательство</dt><dd>Поиск существующего кейса до записи — дубль не создаётся</dd></div></dl>
+          <dl class="tc"><div><dt>Предусловие</dt><dd>Задача в Яндекс Трекере и связанная happy-path задача</dd></div><div><dt>Шаги</dt><dd>Черновик кейса, проверка структуры, просмотр без записи</dd></div><div><dt>Ожидаемый результат</dt><dd>Кейс в Test IT, связанный с задачей</dd></div><div><dt>Чем подтверждено</dt><dd>Поиск существующего кейса до записи — дубль не создаётся</dd></div></dl>
         </div>
       </a>
     </div></section>
@@ -111,7 +111,7 @@
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap contact">
       <div><p class="status"><span class="status-dot" aria-hidden="true"></span>Открыт к предложениям</p><h2 id="contact-title">Контакты</h2><p class="contact-description">Рассматриваю удалённую работу QA Automation Engineer (Python) в продуктовой команде: UI/API-автотесты, интеграции и инфраструктура тестирования.</p></div>
-      <div class="contact-links"><a class="contact-primary" href="https://t.me/i_nitochkin" target="_blank" rel="noopener noreferrer"><span><small>Telegram</small>@i_nitochkin</span><span aria-hidden="true">↗</span></a><div class="email-row"><a href="mailto:igor.nitochkin@gmail.com">igor.nitochkin@gmail.com</a><button class="copy-email" type="button" data-copy-email="igor.nitochkin@gmail.com" aria-label="Скопировать email">Копировать</button></div><p class="copy-status" role="status" aria-live="polite"></p><div class="contact-secondary"><a href="https://hh.ru/resume/306d67f1ff0e94d76b0039ed1f4e475a566e42" target="_blank" rel="noopener noreferrer">Резюме на hh.ru ↗</a><a href="resume.pdf?v=20260915-5" download="Igor-Nitochkin-QA.pdf">Скачать PDF ↓</a></div></div>
+      <div class="contact-links"><a class="contact-primary" href="https://t.me/i_nitochkin" target="_blank" rel="noopener noreferrer"><span><small>Telegram</small>@i_nitochkin</span><span aria-hidden="true">↗︎</span></a><div class="email-row"><a href="mailto:igor.nitochkin@gmail.com">igor.nitochkin@gmail.com</a><button class="copy-email" type="button" data-copy-email="igor.nitochkin@gmail.com" aria-label="Скопировать email">Копировать</button></div><p class="copy-status" role="status" aria-live="polite"></p><div class="contact-secondary"><a href="https://hh.ru/resume/306d67f1ff0e94d76b0039ed1f4e475a566e42" target="_blank" rel="noopener noreferrer">Резюме на hh.ru ↗</a><a href="resume.pdf?v=20260915-5" download="Igor-Nitochkin-QA.pdf">Скачать PDF ↓</a></div></div>
     </div></section>
   </main>
   <footer class="site-footer wrap"><p>© <span data-year>2026</span> Игорь Ниточкин</p><a class="ci-link" href="https://github.com/IgornitQA/IgornitQA.github.io/actions/workflows/site-tests.yml" target="_blank" rel="noopener noreferrer"><span>Сайт проверяется автотестами</span><img src="https://github.com/IgornitQA/IgornitQA.github.io/actions/workflows/site-tests.yml/badge.svg" alt="Статус последнего прогона автотестов сайта" height="20"></a><a href="#main">Наверх ↑</a></footer>
