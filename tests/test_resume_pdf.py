@@ -38,3 +38,4 @@ def test_resume_links_use_versioned_url(open_page):
     hrefs = page.eval_on_selector_all("a[href*='resume.pdf']", "a => a.map(x => x.getAttribute('href'))")
     assert hrefs, "на главной нет ссылки на PDF"
     assert len(set(hrefs)) == 1, f"ссылки на PDF ведут на разные версии: {hrefs}"
+    assert re.search(r"resume\.pdf\?v=\S+", hrefs[0]), f"ссылка на PDF без версии — браузер может отдать старый файл из кеша: {hrefs[0]}"
