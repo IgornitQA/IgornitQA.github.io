@@ -79,6 +79,7 @@ h2{font-size:34px;line-height:1.15;letter-spacing:-.8px;font-weight:650}
 .experience-layout{display:grid;grid-template-columns:1fr 2.1fr;gap:48px}
 .company h3{font-size:28px;letter-spacing:-.5px;font-weight:700}
 .company .role{font-size:16px;font-weight:600;margin-top:6px}
+.company .role-history{font-size:14px;color:var(--muted);margin-top:4px}
 .company .company-description{font-size:14px;color:var(--muted);max-width:300px;margin-top:16px;line-height:1.7}
 .achievement-list article{display:flex;gap:22px;border-top:1px solid var(--line);padding:22px 0}
 .achievement-list article:first-child{padding-top:0;border-top:0}
