@@ -20,7 +20,7 @@ python -m http.server 4173 --bind 127.0.0.1
 - `cases/happy-path-bot.html` — кейс: подготовка тестовой документации и связь Яндекс Трекера с Test IT.
 - `styles.css` — оформление и адаптивная вёрстка.
 - `script.js` — мобильная навигация, копирование email, год в подвале.
-- `resume.pdf` — одностраничное резюме с актуальными контактами.
+- `resume.pdf` — одностраничное резюме; собирается `tools/build_resume.py` (`uv run --no-project --with reportlab python tools/build_resume.py`), после пересборки поднять `?v=` в ссылках на PDF.
 - `avatar.png`, `mark.svg` — фотография и значок сайта.
 
 ## Автотесты сайта
