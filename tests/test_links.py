@@ -31,6 +31,17 @@ def test_internal_links_and_assets_resolve(open_page, base_url, path):
     assert not broken, "битые ссылки:\n" + "\n".join(broken)
 
 
+def test_case_links_share_one_cache_version(open_page):
+    page = open_page("/")
+    hrefs = page.eval_on_selector_all("a[href*='cases/']", "a => a.map(x => x.getAttribute('href'))")
+    assert hrefs, "на главной нет ссылок на кейсы"
+    versions = []
+    for href in hrefs:
+        assert "?v=" in href, f"ссылка на кейс без версии кеша: {href}"
+        versions.append(href.split("?", 1)[1])
+    assert len(set(versions)) == 1, f"ссылки на кейсы с разными версиями: {hrefs}"
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_anchor_links_have_targets(open_page, path):
     page = open_page(path)

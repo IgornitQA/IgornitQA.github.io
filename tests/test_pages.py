@@ -35,6 +35,52 @@ def test_every_case_page_is_linked_from_main(open_page):
     assert not orphans, f"страницы кейсов без ссылки с главной: {orphans}"
 
 
+ROLE = "QA Engineer (Automation, Python)"
+CAREER_CHANGE = "С июня 2020 по январь 2025 работал фриланс-фотографом, а с апреля 2025 перешёл в тестирование."
+QA_STUDIO = "ручное тестирование (2025), автоматизация на Python (2026)."
+
+
+def test_headline_matches_experience_grade(open_page):
+    page = open_page("/")
+    body = page.locator("body").inner_text()
+
+    assert ROLE in page.title()
+    assert page.locator(".hero-role").inner_text() == f"{ROLE} · финтех"
+    assert "QA Automation Engineer" not in page.title()
+    assert "QA Automation Engineer" not in body
+    assert "Junior QA Engineer" in body
+    assert "QA Engineer" in page.locator(".role").inner_text()
+
+
+def test_github_link_is_on_first_screen_and_in_contacts(open_page):
+    page = open_page("/")
+    github = "https://github.com/IgornitQA"
+    assert page.locator(f".hero a[href='{github}']").count() == 1
+    assert page.locator(f"#contact a[href='{github}']").count() == 1
+
+
+def test_education_block_matches_resume_source(open_page):
+    page = open_page("/")
+    block = page.locator("#education")
+
+    assert block.locator("h2").inner_text() == "Образование и развитие"
+    text = block.inner_text()
+    assert "QA Studio" in text
+    assert QA_STUDIO in text
+    assert CAREER_CHANGE in text
+    assert "ПУ-60" not in text
+    assert "секретарь-референт" not in text
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_initials_mark_is_labeled(open_page, path):
+    page = open_page(path)
+    mark = page.locator(".brand-mark abbr")
+    assert mark.inner_text() == "ин."
+    assert mark.get_attribute("title") == "Инициалы: Игорь Ниточкин"
+    assert "Игорь Ниточкин" in page.locator(".brand").inner_text()
+
+
 def test_footer_year_is_current(open_page):
     import datetime as dt
 

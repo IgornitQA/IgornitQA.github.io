@@ -3,8 +3,8 @@
 Запуск из корня репозитория:
     uv run --no-project --with reportlab python tools/build_resume.py
 
-Шрифт — Segoe UI из Windows; на другой ОС передать путь к каталогу
-с segoeui.ttf и segoeuib.ttf через RESUME_FONT_DIR.
+Шрифт — Segoe UI из Windows. Если этих файлов нет, берётся Noto Sans.
+Свой каталог с segoeui.ttf и segoeuib.ttf — через RESUME_FONT_DIR.
 """
 from __future__ import annotations
 
@@ -30,8 +30,8 @@ RULE = HexColor("#E6EBE7")
 FOOTER = HexColor("#9AA7A2")
 
 NAME = "Игорь Ниточкин"
-HEADLINE = "QA Automation Engineer (Python) | Финтех"
-FOOTER_TEXT = f"{NAME} · QA Automation Engineer (Python)"
+HEADLINE = "QA Engineer (Automation, Python) | Финтех"
+FOOTER_TEXT = f"{NAME} · QA Engineer (Automation, Python)"
 
 CONTACTS = [
     "Краснодар · UTC+3 · Удалённая работа",
@@ -43,7 +43,7 @@ CONTACTS = [
 ]
 
 ABOUT = (
-    "QA Automation Engineer в финтехе с апреля 2025 года. Пишу UI/API-автотесты на Python, pytest и Playwright: "
+    "QA Engineer (Automation, Python) в финтехе с апреля 2025 года. Пишу UI/API-автотесты на Python, pytest и Playwright: "
     "фикстуры, контракты и проверки БД. Настраиваю CI и применяю AI в ревью требований и диагностике."
 )
 
@@ -93,9 +93,8 @@ SKILLS = [
 
 EDUCATION = [
     ("QA Studio", "ручное тестирование (2025), автоматизация на Python (2026)."),
-    ("ПУ-60", "среднее специальное образование, секретарь-референт, оператор ЭВМ (2008)."),
 ]
-EARLIER = "Ранее: фриланс-фотограф, июнь 2020 — январь 2025."
+EARLIER = "С июня 2020 по январь 2025 работал фриланс-фотографом, а с апреля 2025 перешёл в тестирование."
 
 
 def _nbsp(text: str) -> str:
@@ -103,15 +102,30 @@ def _nbsp(text: str) -> str:
     return text.replace(" — ", " — ")
 
 
-def _styles() -> dict[str, ParagraphStyle]:
-    base = ParagraphStyle("base", fontName="Segoe", fontSize=9.6, leading=13.6, textColor=INK)
+def _font_files() -> tuple[Path, Path, str, str]:
+    regular = FONT_DIR / "segoeui.ttf"
+    bold = FONT_DIR / "segoeuib.ttf"
+    if regular.is_file() and bold.is_file():
+        return regular, bold, "Segoe", "Segoe-Bold"
+    noto = Path("/usr/share/fonts/truetype/noto")
+    regular, bold = noto / "NotoSans-Regular.ttf", noto / "NotoSans-Bold.ttf"
+    if regular.is_file() and bold.is_file():
+        return regular, bold, "NotoSans", "NotoSans-Bold"
+    raise SystemExit(
+        f"Нужны segoeui.ttf и segoeuib.ttf в {FONT_DIR}. "
+        "Каталог можно задать через RESUME_FONT_DIR."
+    )
+
+
+def _styles(font: str, font_bold: str) -> dict[str, ParagraphStyle]:
+    base = ParagraphStyle("base", fontName=font, fontSize=9.6, leading=13.6, textColor=INK)
     return {
-        "name": ParagraphStyle("name", base, fontName="Segoe-Bold", fontSize=27, leading=32),
+        "name": ParagraphStyle("name", base, fontName=font_bold, fontSize=27, leading=32),
         "headline": ParagraphStyle("headline", base, fontSize=13, leading=18, textColor=ACCENT, spaceBefore=2),
         "meta": ParagraphStyle("meta", base, fontSize=8.8, leading=15, textColor=MUTED),
-        "section": ParagraphStyle("section", base, fontName="Segoe-Bold", fontSize=10, textColor=ACCENT,
+        "section": ParagraphStyle("section", base, fontName=font_bold, fontSize=10, textColor=ACCENT,
                                   spaceBefore=11, spaceAfter=4),
-        "company": ParagraphStyle("company", base, fontName="Segoe-Bold", fontSize=11.5, leading=15),
+        "company": ParagraphStyle("company", base, fontName=font_bold, fontSize=11.5, leading=15),
         "role": ParagraphStyle("role", base, fontSize=9, leading=12.6, textColor=MUTED),
         "body": base,
         "bullet": ParagraphStyle("bullet", base, leftIndent=9, firstLineIndent=-9, spaceBefore=3.2),
@@ -119,20 +133,25 @@ def _styles() -> dict[str, ParagraphStyle]:
     }
 
 
-def _footer(canvas, doc) -> None:
-    canvas.saveState()
-    canvas.setFont("Segoe", 7.6)
-    canvas.setFillColor(FOOTER)
-    canvas.drawString(doc.leftMargin, 9 * mm, FOOTER_TEXT)
-    canvas.drawRightString(A4[0] - doc.rightMargin, 9 * mm, str(doc.page))
-    canvas.restoreState()
+def _footer(font: str):
+    def draw(canvas, doc) -> None:
+        canvas.saveState()
+        canvas.setFont(font, 7.6)
+        canvas.setFillColor(FOOTER)
+        canvas.drawString(doc.leftMargin, 9 * mm, FOOTER_TEXT)
+        canvas.drawRightString(A4[0] - doc.rightMargin, 9 * mm, str(doc.page))
+        canvas.restoreState()
+
+    return draw
 
 
 def build() -> Path:
-    pdfmetrics.registerFont(TTFont("Segoe", str(FONT_DIR / "segoeui.ttf")))
-    pdfmetrics.registerFont(TTFont("Segoe-Bold", str(FONT_DIR / "segoeuib.ttf")))
-    pdfmetrics.registerFontFamily("Segoe", normal="Segoe", bold="Segoe-Bold")
-    s = _styles()
+    regular_path, bold_path, font, font_bold = _font_files()
+    pdfmetrics.registerFont(TTFont(font, str(regular_path)))
+    pdfmetrics.registerFont(TTFont(font_bold, str(bold_path)))
+    pdfmetrics.registerFontFamily(font, normal=font, bold=font_bold)
+    s = _styles(font, font_bold)
+    draw_footer = _footer(font)
 
     roles = [
         f"<b>{title}</b> · {dates.format(PROMOTED=PROMOTED, PROMOTED_LOWER=PROMOTED.lower())}"
@@ -163,10 +182,10 @@ def build() -> Path:
     doc = SimpleDocTemplate(
         str(OUT), pagesize=A4,
         leftMargin=15 * mm, rightMargin=15 * mm, topMargin=16 * mm, bottomMargin=16 * mm,
-        title=f"{NAME} — QA Automation Engineer (Python)", author=NAME,
+        title=f"{NAME} — QA Engineer (Automation, Python)", author=NAME,
         subject="Web, API, автоматизация на Python",
     )
-    doc.build(story, onFirstPage=_footer, onLaterPages=_footer)
+    doc.build(story, onFirstPage=draw_footer, onLaterPages=draw_footer)
     return OUT
 
 
