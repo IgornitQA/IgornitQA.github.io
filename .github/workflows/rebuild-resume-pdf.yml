@@ -2,11 +2,6 @@ name: Rebuild resume PDF
 
 on:
   workflow_dispatch:
-  # One-time registration: GitHub only dispatches a workflow after it has run
-  # once, and this file is not on the default branch yet. Removed after that run.
-  push:
-    branches:
-      - cursor/resume-consistency-27d9
 
 permissions:
   contents: write
@@ -33,7 +28,13 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
-      - uses: astral-sh/setup-uv@v5
+      # astral-sh/setup-uv is not in this repo's allowed-actions list
+      # (only IgornitQA and GitHub-owned actions). Install the same uv tool directly.
+      - name: Install uv
+        shell: pwsh
+        run: |
+          irm https://astral.sh/uv/install.ps1 | iex
+          Add-Content -Path $env:GITHUB_PATH -Value (Join-Path $env:USERPROFILE ".local\bin")
 
       - name: Build resume.pdf
         shell: pwsh
