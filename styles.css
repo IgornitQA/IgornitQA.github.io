@@ -25,6 +25,7 @@ img{max-width:100%;display:block}
 .header-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:baseline;gap:12px;flex-shrink:0}
 .brand-mark{font-family:var(--mono);font-weight:700;font-size:22px;letter-spacing:-1px}
+.brand-mark abbr{text-decoration:none}
 .brand>span:last-child{font-family:var(--mono);font-size:11px;color:var(--muted)}
 nav{display:flex;align-items:center;gap:26px;font-size:14px}
 nav a:hover,.text-link:hover,.contact-secondary a:hover{color:var(--pass)}
@@ -47,7 +48,7 @@ h2{font-size:34px;line-height:1.15;letter-spacing:-.8px;font-weight:650}
 .hero-role{font-family:var(--mono);font-size:14px;color:var(--muted)}
 .hero-statement{font-size:24px;line-height:1.35;font-weight:600;letter-spacing:-.4px;max-width:560px;margin-top:30px}
 .hero-description{font-size:16px;line-height:1.75;color:var(--muted);max-width:540px;margin-top:14px}
-.hero-actions{display:flex;align-items:center;gap:28px;margin-top:32px;font-size:14px}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:28px;margin-top:32px;font-size:14px}
 .button{display:inline-flex;align-items:center;gap:22px;background:var(--ink);color:#fff;padding:13px 18px;border-radius:4px;font-size:14px;font-weight:600;transition:background .18s}
 .button:hover{background:var(--pass)}
 .text-link{font-weight:600}
@@ -131,6 +132,10 @@ h2{font-size:34px;line-height:1.15;letter-spacing:-.8px;font-weight:650}
 .stack-list dt{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px}
 .stack-list dd{font-size:15px;font-weight:600}
 .stack-list dd span{display:block;font-size:13px;font-weight:400;color:var(--muted);margin-top:4px}
+.education-list>div{display:grid;grid-template-columns:170px 1fr;gap:20px;border-top:1px solid var(--line);padding:16px 0}
+.education-list dt{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:4px}
+.education-list dd{font-size:16px;font-weight:600;line-height:1.5}
+.education-earlier{max-width:720px;margin-top:8px;font-size:15px;line-height:1.7;color:var(--muted)}
 
 /* Контакты */
 .contact-section{background:var(--surface);border-top:1px solid var(--line);padding-block:72px}
@@ -219,7 +224,7 @@ h2{font-size:34px;line-height:1.15;letter-spacing:-.8px;font-weight:650}
  .article-layout{grid-template-columns:160px minmax(0,1fr);gap:36px}
 }
 @media(max-width:800px){
- html{scroll-padding-top:80px}.wrap{width:calc(100% - 48px)}.brand>span:last-child{display:none}
+ html{scroll-padding-top:80px}.wrap{width:calc(100% - 48px)}
  nav{gap:16px;font-size:13px}nav .nav-download{display:none}
  .hero{grid-template-columns:1fr .75fr;gap:28px;padding-block:44px}.hero h1{font-size:54px;letter-spacing:-1.8px}.hero-statement{font-size:20px}.hero-description{font-size:15px}.hero-actions{flex-direction:column;align-items:flex-start;gap:16px}.hero-portrait img{height:330px}
  .run-rows strong{font-size:21px}.run-rows>div{padding:16px}
@@ -236,7 +241,7 @@ h2{font-size:34px;line-height:1.15;letter-spacing:-.8px;font-weight:650}
  nav{flex-wrap:wrap;gap:10px 20px;padding:12px 0;font-size:14px}.header-inner>nav{width:100%}
  .js .menu-toggle{display:flex;align-items:center;gap:14px;background:none;border:0;padding:8px 0 8px 16px;font-size:14px;cursor:pointer}.menu-toggle span{font-size:22px;line-height:1}.js #main-nav{display:none}.js #main-nav.is-open{display:flex;padding-bottom:16px}.js #main-nav .nav-download{display:block;border:0;padding:0;margin:0}
  .hero{grid-template-columns:1fr;gap:32px;padding-block:34px}.hero h1{font-size:clamp(42px,12vw,56px);letter-spacing:-1.5px;margin-top:20px}.hero-statement{font-size:20px;margin-top:22px}
- .hero-actions{flex-direction:row;align-items:center;gap:20px}.hero-portrait{max-width:100%;margin:0}.hero-portrait img{height:340px;object-position:center 32%}
+ .hero-actions{flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap}.education-list>div{grid-template-columns:1fr;gap:4px}.hero-portrait{max-width:100%;margin:0}.hero-portrait img{height:340px;object-position:center 32%}
  .run-head{flex-direction:column;gap:2px;padding:12px 16px}.run-rows{grid-template-columns:1fr}.run-rows>div{border-left:0;border-top:1px solid var(--line);padding:16px}.run-rows>div:first-child{border-top:0}
  .section{padding-block:52px}h2{font-size:28px}.section-head{flex-direction:column;gap:6px;margin-bottom:28px}.section-head p{text-align:left}
  .achievement-list article{gap:14px}.achievement-list p{font-size:14px}

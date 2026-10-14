@@ -1,0 +1,55 @@
+name: Rebuild resume PDF
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: windows-latest
+    steps:
+      - name: Require Segoe UI fonts
+        shell: pwsh
+        run: |
+          $required = @(
+            "C:\Windows\Fonts\segoeui.ttf",
+            "C:\Windows\Fonts\segoeuib.ttf"
+          )
+          $missing = @($required | Where-Object { -not (Test-Path -LiteralPath $_) })
+          if ($missing.Count -gt 0) {
+            Write-Host "::error::Segoe UI fonts are missing: $($missing -join ', '). Expected C:\Windows\Fonts\segoeui.ttf and C:\Windows\Fonts\segoeuib.ttf."
+            exit 1
+          }
+          Write-Host "Found $($required -join ', ')"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      # astral-sh/setup-uv is not in this repo's allowed-actions list
+      # (only IgornitQA and GitHub-owned actions). Install the same uv tool directly.
+      - name: Install uv
+        shell: pwsh
+        run: |
+          irm https://astral.sh/uv/install.ps1 | iex
+          Add-Content -Path $env:GITHUB_PATH -Value (Join-Path $env:USERPROFILE ".local\bin")
+
+      - name: Build resume.pdf
+        shell: pwsh
+        run: uv run --no-project --with reportlab python tools/build_resume.py
+
+      - name: Commit resume.pdf when it changed
+        shell: pwsh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- resume.pdf
+          $changed = git diff --cached --name-only -- resume.pdf
+          if (-not $changed) {
+            Write-Host "resume.pdf is unchanged; nothing to commit."
+            exit 0
+          }
+          git commit -m "Rebuild resume PDF with Segoe UI"
+          git push origin "HEAD:${{ github.ref_name }}"

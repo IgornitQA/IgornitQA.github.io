@@ -1,6 +1,6 @@
-# Игорь Ниточкин · QA Automation Engineer (Python)
+# Игорь Ниточкин · QA Engineer (Automation, Python)
 
-Персональное портфолио: автоматизация UI/API в финтехе, проверки контрактов и состояния данных, применение AI в QA-цикле. Статический сайт для GitHub Pages без сборки, внешних библиотек, аналитики и форм сбора данных.
+Персональное портфолио QA Engineer (Automation, Python): автоматизация UI/API в финтехе, проверки контрактов и состояния данных, применение AI в QA-цикле. Статический сайт для GitHub Pages без сборки, внешних библиотек, аналитики и форм сбора данных.
 
 ## Локальный просмотр
 
@@ -14,27 +14,49 @@ python -m http.server 4173 --bind 127.0.0.1
 
 ## Структура
 
-- `index.html` — главная страница, опыт, инструменты и контакты.
+- `index.html` — главная страница, опыт, образование, инструменты и контакты.
 - `cases/api-regression.html` — кейс: фикстуры, контракты, постусловия в БД и отчётность.
 - `cases/ai-in-qa.html` — кейс: ревью требований, тест-дизайн, автотесты и диагностика с AI.
 - `cases/happy-path-bot.html` — кейс: подготовка тестовой документации и связь Яндекс Трекера с Test IT.
 - `styles.css` — оформление и адаптивная вёрстка.
 - `script.js` — мобильная навигация, копирование email, год в подвале.
-- `resume.pdf` — одностраничное резюме; собирается `tools/build_resume.py` (`uv run --no-project --with reportlab python tools/build_resume.py`), после пересборки поднять `?v=` в ссылках на PDF.
+- `resume.pdf` — одностраничное резюме; собирается `tools/build_resume.py` (`uv run --no-project --with reportlab python tools/build_resume.py`). Шрифт — Segoe UI; если файлов нет, берётся Noto Sans. После пересборки поднять `?v=` в ссылках на PDF.
 - `avatar.png`, `mark.svg` — фотография и значок сайта.
 
 ## Автотесты сайта
 
-[![Автотесты сайта](https://github.com/igornitqa/igornitqa.github.io/actions/workflows/site-tests.yml/badge.svg)](https://github.com/igornitqa/igornitqa.github.io/actions/workflows/site-tests.yml)
+[![Автотесты сайта](https://github.com/IgornitQA/IgornitQA.github.io/actions/workflows/site-tests.yml/badge.svg)](https://github.com/IgornitQA/IgornitQA.github.io/actions/workflows/site-tests.yml)
 
 pytest + Playwright в `tests/`: страницы открываются без ошибок консоли и битых запросов; внутренние ссылки, якоря и ресурсы отвечают 200; нет горизонтального скролла на телефоне, планшете и десктопе; мобильное меню и копирование email работают; axe-core без нарушений serious/critical; PDF-резюме валидно, а email и Telegram в нём совпадают с сайтом. CI гоняет набор на каждый push и PR, по понедельникам — по опубликованному сайту вместе с внешними ссылками.
 
+Общее для обеих систем — из корня репозитория:
+
 ```sh
 cd tests
-python -m venv .venv && .venv/Scripts/pip install -r requirements.txt   # Linux/macOS: .venv/bin/pip
-.venv/Scripts/python -m playwright install chromium
-.venv/Scripts/python -m pytest                     # локальный сервер поднимается сам
-SITE_URL=https://igornitqa.github.io .venv/Scripts/python -m pytest -m ""   # опубликованный сайт + внешние ссылки
+python -m venv .venv
 ```
+
+Windows (cmd или PowerShell; в cmd для переменной окружения используйте `set SITE_URL=https://igornitqa.github.io&&`):
+
+```sh
+.venv/Scripts/pip install -r requirements.txt
+.venv/Scripts/python -m playwright install chromium
+.venv/Scripts/python -m pytest
+```
+
+```powershell
+$env:SITE_URL = "https://igornitqa.github.io"; .venv/Scripts/python -m pytest -m ""
+```
+
+Linux и macOS:
+
+```sh
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python -m playwright install chromium
+.venv/bin/python -m pytest
+SITE_URL=https://igornitqa.github.io .venv/bin/python -m pytest -m ""
+```
+
+`pytest` без `SITE_URL` поднимает локальный сервер сам. Прогон с `SITE_URL` идёт по опубликованному сайту и включает внешние ссылки.
 
 Опубликованная версия: https://igornitqa.github.io/. Закрытый код, внутренние адреса и данные пользователей на сайт не попадают.

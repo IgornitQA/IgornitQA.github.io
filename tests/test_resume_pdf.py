@@ -17,8 +17,21 @@ def _resume_text(page, base_url) -> tuple[object, str]:
 
 def test_resume_pdf_is_valid(page, base_url):
     reader, text = _resume_text(page, base_url)
-    assert len(reader.pages) >= 1
+    assert len(reader.pages) == 1
     assert "Ниточкин" in text
+
+
+def test_resume_copy_matches_site(page, base_url):
+    _, text = _resume_text(page, base_url)
+    flat = re.sub(r"\s+", " ", text)
+
+    assert "QA Engineer (Automation, Python)" in flat
+    assert "QA Automation Engineer" not in flat
+    assert "QA Studio: ручное тестирование (2025), автоматизация на Python (2026)." in flat
+    assert "С июня 2020 по январь 2025 работал фриланс-фотографом, а с апреля 2025 перешёл в тестирование." in flat
+    assert "ПУ-60" not in flat
+    assert "секретарь-референт" not in flat
+    assert "github.com/IgornitQA" in flat or "IgornitQA" in flat
 
 
 def test_resume_contacts_match_site(open_page, base_url):
