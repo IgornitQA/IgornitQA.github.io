@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   rebuild:
@@ -42,14 +43,49 @@ jobs:
 
       - name: Commit resume.pdf when it changed
         shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- resume.pdf
-          $changed = git diff --cached --name-only -- resume.pdf
-          if (-not $changed) {
+          $pdfChanged = git diff --cached --name-only -- resume.pdf
+          if (-not $pdfChanged) {
             Write-Host "resume.pdf is unchanged; nothing to commit."
             exit 0
           }
+
+          $today = [DateTime]::UtcNow.ToString("yyyyMMdd")
+          $files = Get-ChildItem -Path . -Recurse -File |
+            Where-Object { $_.Extension -in '.html', '.md' -and $_.FullName -notmatch '[\\/](\.git|tests)[\\/]' }
+          $maxN = 0
+          $found = $false
+          foreach ($file in $files) {
+            $text = [IO.File]::ReadAllText($file.FullName)
+            foreach ($match in [regex]::Matches($text, 'resume\.pdf\?v=(\d{8})-(\d+)')) {
+              $found = $true
+              if ($match.Groups[1].Value -eq $today) {
+                $n = [int]$match.Groups[2].Value
+                if ($n -gt $maxN) { $maxN = $n }
+              }
+            }
+          }
+          if (-not $found) {
+            Write-Host "::error::resume.pdf changed, but no resume.pdf?v= links were found to bump."
+            exit 1
+          }
+          $next = "$today-$($maxN + 1)"
+          $utf8 = New-Object System.Text.UTF8Encoding $false
+          foreach ($file in $files) {
+            $text = [IO.File]::ReadAllText($file.FullName)
+            $updated = [regex]::Replace($text, 'resume\.pdf\?v=\d{8}-\d+', "resume.pdf?v=$next")
+            if ($updated -eq $text) { continue }
+            [IO.File]::WriteAllText($file.FullName, $updated, $utf8)
+            git add -- $file.FullName
+            Write-Host "Bumped cache version in $($file.FullName) to $next"
+          }
+
           git commit -m "Rebuild resume PDF with Segoe UI"
           git push origin "HEAD:${{ github.ref_name }}"
+          # Push with GITHUB_TOKEN does not start site-tests.yml. Dispatch does.
+          gh workflow run site-tests.yml --ref "${{ github.ref_name }}"

@@ -11,6 +11,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+from reportlab import rl_config
 from reportlab.lib.colors import HexColor
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
@@ -145,7 +146,11 @@ def _footer(font: str):
     return draw
 
 
-def build() -> Path:
+def build(out: Path | None = None) -> Path:
+    # Одинаковый текст и шрифт дают одинаковые байты: без этого CreationDate
+    # и id документа меняются на каждом запуске и workflow коммитит PDF зря.
+    rl_config.invariant = 1
+    destination = OUT if out is None else Path(out)
     regular_path, bold_path, font, font_bold = _font_files()
     pdfmetrics.registerFont(TTFont(font, str(regular_path)))
     pdfmetrics.registerFont(TTFont(font_bold, str(bold_path)))
@@ -180,13 +185,14 @@ def build() -> Path:
         Paragraph(EARLIER, s["small"]),
     ]
     doc = SimpleDocTemplate(
-        str(OUT), pagesize=A4,
+        str(destination), pagesize=A4,
         leftMargin=15 * mm, rightMargin=15 * mm, topMargin=16 * mm, bottomMargin=16 * mm,
         title=f"{NAME} — QA Engineer (Automation, Python)", author=NAME,
         subject="Web, API, автоматизация на Python",
+        invariant=1,
     )
     doc.build(story, onFirstPage=draw_footer, onLaterPages=draw_footer)
-    return OUT
+    return destination
 
 
 if __name__ == "__main__":

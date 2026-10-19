@@ -28,6 +28,8 @@ jobs:
 
       - name: Зависимости
         run: |
+          sudo DEBIAN_FRONTEND=noninteractive apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y fonts-noto-core
           pip install -r requirements.txt
           python -m playwright install --with-deps chromium
 
