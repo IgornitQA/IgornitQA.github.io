@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Игорь Ниточкин — QA Engineer (Automation, Python) в финтехе. UI/API-автотесты, pytest, Playwright, GitLab CI, контракты и проверки данных. Опыт и практические кейсы.">
+  <meta name="description" content="Игорь Ниточкин — Инженер по тестированию (QA Engineer) в финтехе. Функциональное и интеграционное тестирование, REST API, SQL, Python, pytest, Playwright. Опыт и практические кейсы.">
   <meta name="theme-color" content="#f4f5f6">
-  <meta property="og:title" content="Игорь Ниточкин · QA Engineer (Automation, Python)">
+  <meta property="og:title" content="Игорь Ниточкин · Инженер по тестированию (QA Engineer)">
   <meta property="og:description" content="Проверяю финтех-сценарии от интерфейса до записи в базе данных. Python, pytest, Playwright, контракты API и проверки состояния в БД.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://igornitqa.github.io/">
@@ -14,7 +14,7 @@
   <link rel="icon" href="mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20261014-1">
   <script src="script.js?v=20260926-4" defer></script>
-  <title>Игорь Ниточкин · QA Engineer (Automation, Python)</title>
+  <title>Игорь Ниточкин · Инженер по тестированию (QA Engineer)</title>
 </head>
 <body>
   <a class="skip-link" href="#main">К содержимому</a>
@@ -28,14 +28,14 @@
       <div class="hero-copy">
         <p class="status"><span class="status-dot" aria-hidden="true"></span>Открыт к предложениям</p>
         <h1 id="hero-title">Игорь Ниточкин</h1>
-        <p class="hero-role">QA Engineer (Automation, Python) · финтех</p>
+        <p class="hero-role">Инженер по тестированию (QA Engineer) · финтех</p>
         <p class="hero-statement">Проверяю финтех-сценарии от интерфейса до записи в базе данных.</p>
-        <p class="hero-description">Пишу UI- и API-автотесты на Python: pytest, Playwright, Pydantic-контракты. Автоматизирую регистрацию и приглашения, работаю с платёжными сценариями.</p>
+        <p class="hero-description">Тестирую Web, Android, REST API, выплаты и налоговые интеграции. Локализую дефекты по HTTP-запросам, SQL и логам. Развиваю UI/API-автоматизацию на Python, pytest и Playwright.</p>
         <div class="hero-actions"><a class="button" href="#contact">Обсудить работу <span aria-hidden="true">→︎</span></a><a class="text-link" href="https://github.com/IgornitQA" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗︎</span></a><a class="text-link" href="#case">Кейсы <span aria-hidden="true">↓︎</span></a></div>
       </div>
       <figure class="hero-portrait">
         <img src="avatar.png" alt="Игорь Ниточкин" width="348" height="500" fetchpriority="high">
-        <figcaption>Краснодар · UTC+3 · удалённо</figcaption>
+        <figcaption>UTC+3 · удалённая работа</figcaption>
       </figure>
     </section>
 
@@ -51,13 +51,14 @@
     <section class="wrap section" id="experience" aria-labelledby="experience-title">
       <div class="section-head"><h2 id="experience-title">Опыт</h2><p>Апрель 2025 — настоящее время</p></div>
       <div class="experience-layout">
-        <div class="company"><h3>QUGO</h3><p class="role">QA Engineer · автоматизация</p><p class="role-history">с октября 2026 · ранее Junior QA Engineer</p><p class="company-description">Финтех-платформа для выплат самозанятым: платёжные реестры, банковские интеграции, проверки ФНС и документооборот. Продуктовая команда.</p></div>
+        <div class="company"><h3>QUGO</h3><p class="role">QA Engineer · ручное тестирование и автоматизация</p><p class="role-history">с октября 2026 · ранее Junior QA Engineer</p><p class="company-description">Финтех-платформа для выплат самозанятым: платёжные реестры, банковские и налоговые интеграции, документооборот. Коммерческий опыт с апреля 2025 года.</p></div>
         <div class="achievement-list">
-          <article><span class="item-number">01</span><div><h3>Автоматизирую критичные сценарии</h3><p>Пишу smoke- и E2E-проверки регистрации, авторизации и приглашений на Python, pytest и Playwright. В API-регрессе использую одноразовых пользователей, Pydantic-контракты и проверки постусловий в БД.</p><p>В одном E2E регистрации на тестовом стенде сократил время примерно с 85 до 43–45 секунд: переработал ожидание OTP и убрал повторные действия.</p></div></article>
-          <article><span class="item-number">02</span><div><h3>Автоматизировал путь от задачи до тест-кейсов</h3><p>Создал базу из 100+ кейсов и инициировал переход на Test IT. Автоматизировал подготовку черновиков по задачам Яндекс Трекера и перенос проверенных кейсов в TMS: проверку структуры, поиск дублей и связь с задачей. Для этого разработал <a href="cases/happy-path-bot.html?v=20261014-1">Happy Path Bot</a>.</p></div></article>
-          <article><span class="item-number">03</span><div><h3>Настроил окружение и запуск тестов</h3><p>Перевёл проект на uv: зафиксировал зависимости, обновил Docker и GitLab CI, настроил кеширование. Подключил JUnit-отчёты — результаты тестов видны прямо в merge request.</p><p>Вывел E2E регистрации и авторизации на production: запуск только CI-джобой с master, guard от случайного локального запуска, синтетические ИНН, удаление тестового пользователя до и после прогона, техномер вместо личного телефона.</p></div></article>
-          <article><span class="item-number">04</span><div><h3>Проектирую проверки по требованиям</h3><p>Использую таблицы решений для сочетаний условий, классы эквивалентности и граничные значения для валидаций, модели переходов состояний для регистрации и проверок самозанятого. Продумываю ошибки интеграций, повторы и восстановление. Фиксирую противоречия и пропущенные сценарии при ревью ТЗ.</p></div></article>
-          <article><span class="item-number">05</span><div><h3>Проверяю финтех-сценарии и новые направления</h3><p>Работаю с банковскими и налоговыми интеграциями: регистрацией самозанятых, статусами проверок, выплатами и реестрами. Участвовал в запуске KYC, проверял новый тестовый стенд и первым начал тестировать Android-приложение заказчика.</p></div></article>
+          <article><span class="item-number">01</span><div><h3>Тестирую бизнес-критичные интеграции</h3><p>Самостоятельно веду крупные блоки функционального и интеграционного тестирования: выплаты, налоговые сценарии, регистрация и KYC. Участвую в проверке готовности продукта к внешним аудитам. Локализую дефекты по HTTP-запросам, SQL и логам, передаю разработчикам воспроизводимые результаты.</p></div></article>
+          <article><span class="item-number">02</span><div><h3>Автоматизирую критичные сценарии</h3><p>Пишу smoke- и E2E-проверки регистрации, авторизации и приглашений на Python, pytest и Playwright. В API-регрессе использую одноразовых пользователей, Pydantic-контракты и проверки постусловий в БД.</p><p>В одном E2E регистрации на тестовом стенде сократил время примерно с 85 до 43–45 секунд: переработал ожидание OTP и убрал повторные действия.</p></div></article>
+          <article><span class="item-number">03</span><div><h3>Автоматизировал путь от задачи до тест-кейсов</h3><p>Создал базу из 100+ кейсов и инициировал переход на Test IT. Автоматизировал подготовку черновиков по задачам Яндекс Трекера и перенос проверенных кейсов в TMS: проверку структуры, поиск дублей и связь с задачей. Для этого разработал <a href="cases/happy-path-bot.html?v=20261014-1">Happy Path Bot</a>.</p></div></article>
+          <article><span class="item-number">04</span><div><h3>Настроил окружение и запуск тестов</h3><p>Перевёл проект на uv: зафиксировал зависимости, обновил Docker и GitLab CI, настроил кеширование. Подключил JUnit-отчёты — результаты тестов видны прямо в merge request.</p><p>Вывел E2E регистрации и авторизации на production: запуск только CI-джобой с master, guard от случайного локального запуска, синтетические ИНН, удаление тестового пользователя до и после прогона, техномер вместо личного телефона.</p></div></article>
+          <article><span class="item-number">05</span><div><h3>Проектирую проверки по требованиям</h3><p>Использую таблицы решений для сочетаний условий, классы эквивалентности и граничные значения для валидаций, модели переходов состояний для регистрации и проверок самозанятого. Продумываю ошибки интеграций, повторы и восстановление. Фиксирую противоречия и пропущенные сценарии при ревью ТЗ.</p></div></article>
+          <article><span class="item-number">06</span><div><h3>Проверяю финтех-сценарии и новые направления</h3><p>Работаю с банковскими и налоговыми интеграциями: регистрацией самозанятых, статусами проверок, выплатами и реестрами. Участвовал в запуске KYC, проверял новый тестовый стенд и первым начал тестировать Android-приложение заказчика.</p></div></article>
         </div>
       </div>
     </section>
@@ -114,14 +115,13 @@
       <dl class="education-list">
         <div><dt>QA Studio</dt><dd>ручное тестирование (2025), автоматизация на Python (2026).</dd></div>
         <div><dt>2025</dt><dd>Ручное тестирование — база: тест-дизайн, баг-репорты, работа с требованиями.</dd></div>
-        <div><dt>2026</dt><dd>Автоматизация на Python: pytest, Playwright, API- и E2E-автоматизация — тот стек, на котором построен этот сайт и его автотесты.</dd></div>
+        <div><dt>2026</dt><dd>Автоматизация на Python: pytest, Playwright, API- и E2E-автоматизация — стек автотестов этого сайта.</dd></div>
         <div><dt>Английский</dt><dd>A1 — читаю техническую документацию, разговорный базовый.</dd></div>
       </dl>
-      <p class="education-earlier">С июня 2020 по январь 2025 работал фриланс-фотографом, а с апреля 2025 перешёл в тестирование.</p>
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap contact">
-      <div><p class="status"><span class="status-dot" aria-hidden="true"></span>Открыт к предложениям</p><h2 id="contact-title">Контакты</h2><p class="contact-description">Рассматриваю удалённую работу QA Engineer (Automation, Python) в продуктовой команде: UI/API-автотесты, интеграции и инфраструктура тестирования.</p></div>
+      <div><p class="status"><span class="status-dot" aria-hidden="true"></span>Открыт к предложениям</p><h2 id="contact-title">Контакты</h2><p class="contact-description">Рассматриваю удалённую работу Инженер по тестированию (QA Engineer) в продуктовой команде: функциональное и интеграционное тестирование, REST API, SQL, автоматизация на Python.</p></div>
       <div class="contact-links"><a class="contact-primary" href="https://t.me/i_nitochkin" target="_blank" rel="noopener noreferrer"><span><small>Telegram</small>@i_nitochkin</span><span aria-hidden="true">↗︎</span></a><div class="email-row"><a href="mailto:initochkin@yandex.ru">initochkin@yandex.ru</a><button class="copy-email" type="button" data-copy-email="initochkin@yandex.ru" aria-label="Скопировать email">Копировать</button></div><div class="email-row"><a href="mailto:igor.nitochkin@gmail.com">igor.nitochkin@gmail.com</a></div><p class="copy-status" role="status" aria-live="polite"></p><div class="contact-secondary"><a href="https://github.com/IgornitQA" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://hh.ru/resume/306d67f1ff0e94d76b0039ed1f4e475a566e42" target="_blank" rel="noopener noreferrer">Резюме на hh.ru ↗</a><a href="resume.pdf?v=20261113-1" download="Igor-Nitochkin-QA.pdf">Скачать PDF ↓</a></div></div>
     </div></section>
   </main>
